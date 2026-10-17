@@ -1,69 +1,83 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { HeroSection } from "@/components/home/hero-section";
+import { PricingSection } from "@/components/home/pricing-section";
+import { WhyChooseUsSection } from "@/components/home/why-choose-us";
+import { DecisionGuideSection } from "@/components/home/decision-guide";
+import { SecuritySection } from "@/components/home/security-section";
+import { GlobalInfrastructureSection } from "@/components/home/global-infrastructure";
+import { InfrastructurePerformanceSection } from "@/components/home/infrastructure-performance";
+import { DeveloperSection } from "@/components/home/developer-section";
+import { BusinessAgencySection } from "@/components/home/business-agency-section";
+import { MigrationSection } from "@/components/home/migration-section";
+import { ComparisonSection } from "@/components/home/comparison-section";
+import { AiHostingSection } from "@/components/home/ai-hosting-section";
+import { TestimonialsSection } from "@/components/home/testimonials-section";
+import { ResourcesSection } from "@/components/home/resources-section";
+import { FaqSection } from "@/components/home/faq-section";
+
+export const metadata: Metadata = {
+  title: "NEXORA Cloud | High-Performance Web Hosting & Cloud Infrastructure",
+  description:
+    "Next-generation web hosting, Cloud VPS, bare-metal dedicated servers, and managed infrastructure engineered for developers, agencies, and high-growth businesses.",
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="flex min-h-screen flex-col bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
+      {/* 1. Header: Sticky Responsive Navigation */}
+      <Navbar />
+
+      <main className="flex-1">
+        {/* 2. Hero Section with Live Cloud Infrastructure Dashboard & Tech Strip */}
+        <HeroSection />
+
+        {/* 3. Why Choose Us (6 Technical Pillars) */}
+        <WhyChooseUsSection />
+
+        {/* 4. Hardware Architecture & Live Telemetry Performance Benchmarks */}
+        <InfrastructurePerformanceSection />
+
+        {/* 5. Global Infrastructure with Interactive World Map & Region Inspector */}
+        <GlobalInfrastructureSection />
+
+        {/* 6. Dark Security Section with Edge Threat Mitigation Flow */}
+        <SecuritySection />
+
+        {/* 7. Developer-First Section & Interactive CLI Snippet */}
+        <DeveloperSection />
+
+        {/* 8. Business & Digital Agency Management Section */}
+        <BusinessAgencySection />
+
+        {/* 9. Modern AI Website Builder & Canvas Studio */}
+        <AiHostingSection />
+
+        {/* 10. Zero-Downtime Assisted Migration Pipeline */}
+        <MigrationSection />
+
+        {/* 11. Objective Platform Comparison Matrix */}
+        <ComparisonSection />
+
+        {/* 12. Verified Customer Testimonials & 4.8/5 Trust Rating */}
+        <TestimonialsSection />
+
+        {/* 13. Hosting Decision Guide (START → SCALE → CONTROL) */}
+        <DecisionGuideSection />
+
+        {/* 14. Pricing Section with Billing Toggle & Specifications Matrix */}
+        <PricingSection />
+
+        {/* 15. Comprehensive Accordion FAQ (12 Questions) */}
+        <FaqSection />
+
+        {/* 16. Engineering Resources, Guides & Tutorials */}
+        <ResourcesSection />
       </main>
+
+      {/* 21. Global Dark Background Footer */}
+      <Footer />
     </div>
   );
 }
