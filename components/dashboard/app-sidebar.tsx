@@ -15,7 +15,7 @@ import {
   Megaphone,
   Pulse,
   ArrowSquareOut,
-  Sparkle,
+  Handshake,
   Gear,
   User,
   LockKey,
@@ -61,7 +61,7 @@ const generalItems = [
     icon: Pulse,
     isExternal: true,
   },
-  { label: "Partners", href: "/dashboard/partners", icon: Sparkle },
+  { label: "Partners", href: "/dashboard/partners", icon: Handshake },
 ];
 
 const accountSubItems = [

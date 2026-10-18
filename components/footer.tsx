@@ -6,7 +6,7 @@ import Image from "next/image";
 import {
   Globe,
   Cpu,
-  Sparkle,
+  Browsers,
   Terminal,
   GithubLogo,
   TwitterLogo,
@@ -134,7 +134,7 @@ export function Footer() {
           {/* Column 2: Solutions */}
           <div className="space-y-3.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-200 flex items-center gap-1.5">
-              <Sparkle className="size-3.5 text-primary" /> Solutions
+              <Browsers className="size-3.5 text-primary" /> Solutions
             </h4>
             <ul className="space-y-2 text-sm text-zinc-400">
               <li>

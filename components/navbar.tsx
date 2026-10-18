@@ -19,7 +19,7 @@ import {
   Buildings,
   Users,
   ArrowsClockwise,
-  Sparkle,
+  Browsers,
   ShieldCheck,
   Headset,
   BookOpen,
@@ -39,14 +39,14 @@ const hostingProducts: MenuItem[] = [
   {
     title: "Web Hosting",
     description: "Fast NVMe shared hosting with automated SSL & email",
-    href: "/#pricing",
+    href: "/products/web-hosting",
     icon: Globe,
   },
   {
     title: "WordPress Hosting",
     description: "Built-in caching, staging, and 1-click WP maintenance",
-    href: "/#pricing",
-    icon: Sparkle,
+    href: "/products/wordpress-hosting",
+    icon: Browsers,
   },
   {
     title: "Cloud VPS",
@@ -58,19 +58,19 @@ const hostingProducts: MenuItem[] = [
   {
     title: "Managed VPS",
     description: "Enterprise performance with 24/7 proactive sysadmin care",
-    href: "/#pricing",
+    href: "/products/managed-vps",
     icon: ShieldCheck,
   },
   {
     title: "Dedicated Servers",
     description: "Bare-metal high-density hardware with raw IOPS throughput",
-    href: "/#decision-guide",
+    href: "/products/dedicated-servers",
     icon: HardDrives,
   },
   {
     title: "Reseller Hosting",
     description: "White-label cPanel/WHMCS infrastructure for digital agencies",
-    href: "/#agency-section",
+    href: "/products/reseller-hosting",
     icon: ArrowsClockwise,
   },
 ];
@@ -79,25 +79,25 @@ const solutions: MenuItem[] = [
   {
     title: "Developers & DevOps",
     description: "Instant Git deployments, CLI toolchains, and REST APIs",
-    href: "/#developer-section",
+    href: "/solutions/developers",
     icon: Code,
   },
   {
     title: "Businesses & Startups",
     description: "99.99% SLA, SOC 2 compliance & high-availability clusters",
-    href: "/#why-choose-us",
+    href: "/solutions/businesses",
     icon: Buildings,
   },
   {
     title: "Agencies",
     description: "Multi-tenant client accounts, staging environments & white-label",
-    href: "/#agency-section",
+    href: "/solutions/agencies",
     icon: Users,
   },
   {
     title: "Infrastructure Migration",
     description: "Zero-downtime assisted migration by cloud engineers",
-    href: "/#migration-section",
+    href: "/solutions/migration",
     icon: ArrowsClockwise,
   },
 ];
@@ -300,7 +300,7 @@ export function Navbar() {
 
             {/* Locations */}
             <Link
-              href="/#global-infrastructure"
+              href="/locations"
               className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
             >
               Locations
@@ -308,7 +308,7 @@ export function Navbar() {
 
             {/* Resources */}
             <Link
-              href="/#resources"
+              href="/resources"
               className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
             >
               Resources
@@ -316,7 +316,7 @@ export function Navbar() {
 
             {/* Pricing */}
             <Link
-              href="/#pricing"
+              href="/pricing"
               className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
             >
               Pricing
@@ -374,28 +374,27 @@ export function Navbar() {
                     </div>
                   </Link>
 
-                  {/* Disabled Link: Client Dashboard */}
-                  <div
-                    className="flex items-start gap-3 rounded-md p-2.5 opacity-50 cursor-not-allowed select-none bg-muted/30"
-                    title="Client Dashboard is currently disabled"
+                  {/* Active Link: Client Dashboard */}
+                  <Link
+                    href="/client-dashboard"
+                    onClick={() => setActiveDropdown(null)}
+                    className="group flex items-start gap-3 rounded-md p-2.5 transition-colors hover:bg-muted/70"
                   >
-                    <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary">
                       <User weight="bold" className="size-4" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-sm font-semibold text-foreground">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
                           Client Dashboard
                         </span>
-                        <span className="rounded bg-muted-foreground/20 px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
-                          Disabled
-                        </span>
+                        <ArrowRight weight="bold" className="size-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
                       <div className="text-xs text-muted-foreground line-clamp-1">
                         Billing & client portal
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             )}
@@ -472,7 +471,7 @@ export function Navbar() {
             </Link>
 
             <Link
-              href="/#decision-guide"
+              href="/products/dedicated-servers"
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-md px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
             >
@@ -513,7 +512,7 @@ export function Navbar() {
             </div>
 
             <Link
-              href="/#global-infrastructure"
+              href="/locations"
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-md px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
             >
@@ -521,7 +520,7 @@ export function Navbar() {
             </Link>
 
             <Link
-              href="/#resources"
+              href="/resources"
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-md px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
             >
@@ -529,7 +528,7 @@ export function Navbar() {
             </Link>
 
             <Link
-              href="/#pricing"
+              href="/pricing"
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-md px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
             >
@@ -550,17 +549,17 @@ export function Navbar() {
                 <ArrowRight weight="bold" className="size-3.5" />
               </Link>
 
-              <div
-                className="flex items-center justify-between rounded-md border border-border/60 bg-muted/40 px-4 py-2.5 text-sm font-medium text-muted-foreground opacity-50 cursor-not-allowed select-none"
+              <Link
+                href="/client-dashboard"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
               >
                 <div className="flex items-center gap-2">
-                  <User weight="bold" className="size-4" />
+                  <User weight="bold" className="size-4 text-primary" />
                   <span>Client Dashboard</span>
                 </div>
-                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium">
-                  Disabled
-                </span>
-              </div>
+                <ArrowRight weight="bold" className="size-3.5" />
+              </Link>
             </div>
           </div>
         </div>

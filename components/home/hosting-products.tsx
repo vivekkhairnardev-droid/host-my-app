@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Globe,
-  Sparkle,
+  Browsers,
   Cloud,
   ShieldCheck,
   HardDrives,
@@ -60,7 +60,7 @@ const products: ProductCardProps[] = [
     ],
     ctaLink: "#pricing",
     ctaText: "View Plans",
-    icon: Sparkle,
+    icon: Browsers,
   },
   {
     title: "Cloud VPS",

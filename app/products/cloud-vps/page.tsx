@@ -26,7 +26,6 @@ import {
   Fingerprint,
   Headset,
   Copy,
-  Sparkle,
   ArrowsClockwise,
   ClockCounterClockwise,
   ShieldPlus,
@@ -400,8 +399,8 @@ export default function CloudVpsPage() {
               {/* Left Column: Hero Text */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-md border border-border bg-muted/60 px-3 py-1 text-xs font-medium text-foreground">
-                  <Sparkle weight="fill" className="size-3.5 text-primary" />
-                  <span>Next-Gen AMD EPYC™ 9654 & PCIe 4.0 NVMe Compute</span>
+                  <Cpu weight="bold" className="size-3.5 text-primary" />
+                  <span>AMD EPYC™ 9654 & PCIe 4.0 NVMe Compute</span>
                 </div>
 
                 <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
@@ -592,7 +591,7 @@ export default function CloudVpsPage() {
                       href={`/deploy?plan=${selectedPlan.id}&region=${selectedRegion}&os=${selectedOS}`}
                       className={cn(
                         buttonVariants({ size: "default" }),
-                        "w-full rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-md shadow-primary/20 text-center"
+                        "w-full rounded-md bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-xs text-center"
                       )}
                     >
                       Instant Deploy {selectedPlan.name}
@@ -1464,8 +1463,8 @@ export default function CloudVpsPage() {
         <section className="relative py-16 lg:py-24 border-t border-border bg-muted/30">
           <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8 space-y-5">
             <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1 text-xs font-medium text-foreground">
-              <Sparkle weight="fill" className="size-3.5 text-primary" />
-              <span>Deploy Instantly in 30 Seconds</span>
+              <Lightning weight="fill" className="size-3.5 text-primary" />
+              <span>Deploy in Under 30 Seconds</span>
             </span>
 
             <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl tracking-tight text-foreground">

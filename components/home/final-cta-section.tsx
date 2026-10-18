@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Headset, CheckCircle, Sparkle } from "@phosphor-icons/react";
+import { ArrowRight, Headset, CheckCircle } from "@phosphor-icons/react";
 
 export function FinalCtaSection() {
   return (

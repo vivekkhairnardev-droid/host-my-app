@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Sparkle,
   PaintBrush,
   CheckCircle,
   ArrowsClockwise,
@@ -69,7 +68,7 @@ export function AiHostingSection() {
                     </>
                   ) : (
                     <>
-                      <Sparkle weight="fill" className="size-4" />
+                      <PaintBrush weight="bold" className="size-4" />
                       <span>Generate Preview</span>
                     </>
                   )}
