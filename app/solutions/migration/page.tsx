@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { MigrationRoadmapPreview } from "@/components/hero-previews/migration-roadmap-preview";
 import {
   ArrowsClockwise,
   ShieldCheck,
@@ -69,120 +71,103 @@ export default function MigrationPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Solutions</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Infrastructure Migration</span>
-            </nav>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Solutions", href: "/#migration-section" },
+            { label: "Migration Service" },
+          ]}
+          eyebrow="White-Glove Migration Services"
+          title="Zero-Downtime Server &"
+          titleHighlight="Website Migration."
+          description="Moving from another provider? Our certified Linux sysadmins handle your complete transfer—databases, files, configurations, and mailboxes—100% free with zero downtime."
+          primaryCta={{
+            text: "Request Free Migration",
+            href: "#request-form",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "View 4-Step Process",
+            href: "#process",
+            variant: "outline",
+            icon: ArrowsClockwise,
+          }}
+          benefits={[
+            "Zero Downtime Guarantee",
+            "cPanel, Plesk & Linux Transfers",
+            "Complete DNS Cutover Help",
+          ]}
+          preview={<MigrationRoadmapPreview />}
+        />
 
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>Zero Downtime · Assisted by Cloud Engineers · 100% Free</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  Switch to Nexora Cloud with Zero Downtime.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Moving from another provider? Our cloud migration engineers handle your full transfer—databases, configurations, mailboxes, and SSL certificates—completely free with zero lost traffic.
+        {/* MIGRATION REQUEST INTAKE SECTION */}
+        <section id="request-form" className="border-b border-border bg-muted/20 py-12 sm:py-16">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-lg border border-border bg-card p-6 sm:p-8 shadow-xs">
+              <div className="space-y-1 mb-6 text-center">
+                <h2 className="text-xl font-bold text-foreground">Request Your Free Website Migration</h2>
+                <p className="text-xs text-muted-foreground max-w-lg mx-auto">
+                  Submit your transfer details and our migration engineers will review your setup within 30 minutes.
                 </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a href="#request-form" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>Request Free Migration</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </a>
-                  <Link href="/products/cloud-vps" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>Select Target Plan First</span>
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">0 min</p>
-                    <p className="text-xs text-muted-foreground">Recorded Downtime</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">100% Free</p>
-                    <p className="text-xs text-muted-foreground">Included with Any Plan</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">2,500+</p>
-                    <p className="text-xs text-muted-foreground">Transfers Completed</p>
-                  </div>
-                </div>
               </div>
 
-              {/* Migration Form Card */}
-              <div id="request-form" className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs">
-                  <div className="space-y-1 mb-5">
-                    <h3 className="text-base font-bold text-foreground">Request Your Free Migration</h3>
-                    <p className="text-xs text-muted-foreground">
-                      Submit your transfer details and our migration engineers will review your setup within 30 minutes.
-                    </p>
-                  </div>
-
-                  {submitted ? (
-                    <div className="rounded-md border border-border bg-muted/30 p-6 text-center space-y-2">
-                      <CheckCircle weight="fill" className="size-8 text-primary mx-auto" />
-                      <h4 className="text-sm font-bold text-foreground">Migration Ticket Scheduled</h4>
-                      <p className="text-xs text-muted-foreground">
-                        Our cloud migration specialists will reach out via email shortly to coordinate your zero-downtime schedule.
-                      </p>
+              {submitted ? (
+                <div className="rounded-md border border-border bg-muted/30 p-8 text-center space-y-2">
+                  <CheckCircle weight="fill" className="size-8 text-primary mx-auto" />
+                  <h3 className="text-base font-bold text-foreground">Migration Ticket Scheduled</h3>
+                  <p className="text-xs text-muted-foreground">
+                    Our cloud migration specialists will reach out via email shortly to coordinate your zero-downtime schedule.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Your Email</label>
+                      <input
+                        required
+                        type="email"
+                        placeholder="you@domain.com"
+                        className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
+                      />
                     </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-3 text-xs">
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Your Email</label>
-                        <input
-                          required
-                          type="email"
-                          placeholder="you@domain.com"
-                          className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Current Hosting Provider</label>
-                        <input
-                          required
-                          type="text"
-                          placeholder="e.g. AWS, GoDaddy, DigitalOcean, SiteGround"
-                          className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Number of Websites to Migrate</label>
-                        <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
-                          <option>1 Website</option>
-                          <option>2 - 5 Websites</option>
-                          <option>6 - 20 Websites</option>
-                          <option>20+ Agency Client Websites</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Preferred Migration Window</label>
-                        <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
-                          <option>Next available migration engineer</option>
-                          <option>Scheduled weekend off-peak hours</option>
-                          <option>Specific late-night maintenance window</option>
-                        </select>
-                      </div>
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Current Hosting Provider</label>
+                      <input
+                        required
+                        type="text"
+                        placeholder="e.g. AWS, GoDaddy, DigitalOcean, SiteGround"
+                        className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
+                      />
+                    </div>
+                  </div>
 
-                      <Button type="submit" className="w-full mt-2 font-medium">
-                        Submit Migration Request
-                      </Button>
-                    </form>
-                  )}
-                </div>
-              </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Number of Websites to Migrate</label>
+                      <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
+                        <option>1 Website</option>
+                        <option>2 - 5 Websites</option>
+                        <option>6 - 20 Websites</option>
+                        <option>20+ Agency Client Websites</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Preferred Migration Window</label>
+                      <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
+                        <option>Next available migration engineer</option>
+                        <option>Scheduled weekend off-peak hours</option>
+                        <option>Specific late-night maintenance window</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full mt-2 font-medium">
+                    Submit Migration Request
+                  </Button>
+                </form>
+              )}
             </div>
           </div>
         </section>

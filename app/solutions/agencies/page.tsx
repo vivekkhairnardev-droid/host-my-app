@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { AgencyPortalPreview } from "@/components/hero-previews/agency-portal-preview";
 import {
   Users,
   Check,
@@ -89,104 +91,35 @@ export default function AgenciesPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Solutions</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Agencies</span>
-            </nav>
-
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>Multi-Tenant Management · Staging Workflows · Partner Margins</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  Cloud Infrastructure Engineered for Digital Agencies.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Consolidate client hosting in one unified hub. Deliver client projects faster with 1-click staging, granular team permissions, automated client billing handoff, and partner discounts up to 35%.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a href="#partner-tiers" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>View Partner Tiers</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </a>
-                  <Link href="/products/reseller-hosting" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>Reseller Hosting</span>
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">Up to 35%</p>
-                    <p className="text-xs text-muted-foreground">Partner Margin</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">1-Click</p>
-                    <p className="text-xs text-muted-foreground">Staging to Live Sync</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">100% Free</p>
-                    <p className="text-xs text-muted-foreground">Client Migrations</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Multi-Tenant Architecture Overview */}
-              <div className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-3">
-                    <h2 className="text-sm font-bold text-foreground">Agency Hub Capabilities</h2>
-                    <span className="rounded border border-border bg-muted px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
-                      Multi-Tenant
-                    </span>
-                  </div>
-
-                  <div className="space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Staging Environments:</span>
-                      <span className="font-semibold text-foreground">Automated password-protected previews</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Team Role-Based Access:</span>
-                      <span className="font-semibold text-foreground">Admin, Developer, and Billing-only roles</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Client Billing Transfer:</span>
-                      <span className="font-semibold text-foreground">Pass-through credit card billing or agency invoicing</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">White-Label Branding:</span>
-                      <span className="font-semibold text-foreground">Custom logos, nameservers, and login portals</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Bulk Migration Team:</span>
-                      <span className="font-semibold text-foreground">Assisted transfers for complete client rosters</span>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md border border-border bg-muted/40 p-3 text-center">
-                    <span className="text-xs font-medium text-muted-foreground">
-                      Volume billing discounts automatically applied as you add clients
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Solutions", href: "/#agency-section" },
+            { label: "Digital Agencies" },
+          ]}
+          eyebrow="Digital Agency Infrastructure"
+          title="High-Performance Client Hosting"
+          titleHighlight="Built for Digital Agencies."
+          description="Consolidate your client hosting in one unified hub. Deliver websites faster with 1-click staging, granular team permissions, white-label client billing, and partner margins up to 35%."
+          primaryCta={{
+            text: "Explore Agency Hosting",
+            href: "/products/reseller-hosting",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "View Partner Tiers",
+            href: "#partner-tiers",
+            variant: "outline",
+            icon: Users,
+          }}
+          benefits={[
+            "Multi-Tenant Client Portal",
+            "Staging & Instant Clones",
+            "Wholesale Agency Margins",
+          ]}
+          preview={<AgencyPortalPreview />}
+        />
 
         {/* WORKFLOW PIPELINE */}
         <section className="py-16 sm:py-20 border-b border-border">

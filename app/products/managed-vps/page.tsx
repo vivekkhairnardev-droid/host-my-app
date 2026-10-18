@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { VpsConfigPreview } from "@/components/hero-previews/vps-config-preview";
 import {
   ShieldCheck,
   Headset,
@@ -124,104 +126,52 @@ export default function ManagedVPSPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Managed VPS</span>
-            </nav>
-
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>24/7 Human Sysadmin Care · 99.99% SLA · Free Migration</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  Fully Managed Cloud VPS with Round-the-Clock Engineering.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Focus on your application while our certified Linux sysadmins handle security hardening, kernel livepatching, database performance tuning, proactive monitoring, and daily backups.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a href="#plans" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>View Managed Plans</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </a>
-                  <Link href="/products/cloud-vps" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>Unmanaged VPS Plans</span>
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">&lt; 15 min</p>
-                    <p className="text-xs text-muted-foreground">Guaranteed Response SLA</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">99.99%</p>
-                    <p className="text-xs text-muted-foreground">Uptime Guarantee</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">Included</p>
-                    <p className="text-xs text-muted-foreground">cPanel / Plesk Setup</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Service Level Scope Card */}
-              <div className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-3">
-                    <h2 className="text-sm font-bold text-foreground">Management Scope &amp; SLA</h2>
-                    <span className="rounded border border-border bg-muted px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
-                      24/7/365 On-Call
-                    </span>
-                  </div>
-
-                  <div className="space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Incident Response SLA:</span>
-                      <span className="font-semibold text-foreground">Under 15 minutes guaranteed</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">OS Livepatching:</span>
-                      <span className="font-semibold text-foreground">Automated without reboots</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Web Application Firewall:</span>
-                      <span className="font-semibold text-foreground">ModSecurity + OWASP Core Rules</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Database Tuning:</span>
-                      <span className="font-semibold text-foreground">MySQL / MariaDB buffer pool optimization</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Automated Snapshots:</span>
-                      <span className="font-semibold text-foreground">Daily block-level offsite backups</span>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md border border-border bg-muted/40 p-3 text-center">
-                    <span className="text-xs font-medium text-muted-foreground">
-                      Assisted migration included with all managed servers
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Products", href: "/#hosting-plans" },
+            { label: "Managed VPS" },
+          ]}
+          eyebrow="Fully Managed Cloud VPS"
+          title="High-Performance Managed VPS"
+          titleHighlight="with 24/7 Expert Administration."
+          description="Focus on your business while our certified Linux sysadmins handle security hardening, OS livepatching, database optimization, and daily offsite snapshots with a guaranteed 15-minute response SLA."
+          primaryCta={{
+            text: "View Managed Plans",
+            href: "#plans",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Compare Unmanaged VPS",
+            href: "/products/cloud-vps",
+            variant: "outline",
+            icon: Cpu,
+          }}
+          benefits={[
+            "24/7 Proactive Monitoring",
+            "Automated OS Hardening",
+            "15-Minute Support SLA",
+          ]}
+          preview={
+            <VpsConfigPreview
+              title="Managed MVPS-02 Performance"
+              badge="Fully Managed"
+              vCpu="4 Dedicated vCPU"
+              cpuModel="AMD EPYC™ 9654 @ 3.7 GHz"
+              ram="8 GB DDR5 ECC"
+              ramType="ECC Registered"
+              storage="160 GB PCIe 4.0"
+              storageType="NVMe RAID-10"
+              bandwidth="20 TB @ 10 Gbps"
+              monthlyPrice="$19.99"
+              hourlyPrice="cPanel / Plesk Ready"
+              ctaLink="#plans"
+              ctaText="View Managed Plans"
+              showManagedBadge={true}
+            />
+          }
+        />
 
         {/* PRICING PLANS */}
         <section id="plans" className="py-16 sm:py-20 bg-muted/20 border-b border-border">

@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { DeveloperQuickstartPreview } from "@/components/hero-previews/developer-quickstart-preview";
 import {
   Code,
   Terminal,
@@ -111,111 +113,35 @@ export default function DevelopersPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Solutions</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Developers &amp; DevOps</span>
-            </nav>
-
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-6 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>REST API · Official Terraform Provider · Full Root SSH</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  Cloud Infrastructure for Developers &amp; DevOps Teams.
-                </h1>
-
-                <p className="max-w-xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Fast KVM virtual servers, Git push-to-deploy, REST APIs, official Terraform modules, and full root access. Predictable pricing without complex cloud calculators.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <Link href="/products/cloud-vps" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>Deploy Cloud VPS</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </Link>
-                  <Link href="/resources" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>API Documentation</span>
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">&lt; 30s</p>
-                    <p className="text-xs text-muted-foreground">Cloud-Init Provisioning</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">100%</p>
-                    <p className="text-xs text-muted-foreground">Root SSH Access</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">Terraform</p>
-                    <p className="text-xs text-muted-foreground">Official Registry Provider</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Code Playground Box */}
-              <div className="lg:col-span-6">
-                <div className="rounded-lg border border-border bg-zinc-950 text-zinc-100 shadow-xs overflow-hidden">
-                  <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
-                    <div className="flex items-center gap-1">
-                      {(["curl", "typescript", "python", "terraform"] as const).map((tab) => (
-                        <button
-                          key={tab}
-                          onClick={() => setActiveTab(tab)}
-                          className={cn(
-                            "rounded px-2.5 py-1 text-xs font-mono transition-colors cursor-pointer",
-                            activeTab === tab
-                              ? "bg-zinc-800 text-zinc-100 font-semibold"
-                              : "text-zinc-400 hover:text-zinc-200"
-                          )}
-                        >
-                          {tab}
-                        </button>
-                      ))}
-                    </div>
-
-                    <button
-                      onClick={handleCopy}
-                      className="flex items-center gap-1 rounded border border-zinc-800 bg-zinc-900 px-2 py-1 text-xs text-zinc-300 hover:bg-zinc-800 transition-colors cursor-pointer"
-                    >
-                      {copied ? (
-                        <>
-                          <Check weight="bold" className="size-3.5 text-emerald-400" />
-                          <span className="text-emerald-400 font-mono text-[11px]">Copied</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy weight="bold" className="size-3.5" />
-                          <span className="font-mono text-[11px]">Copy</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-
-                  <div className="p-4 overflow-x-auto text-xs font-mono leading-relaxed text-zinc-300">
-                    <pre>
-                      <code>{codeSnippets[activeTab].code}</code>
-                    </pre>
-                  </div>
-
-                  <div className="border-t border-zinc-800 bg-zinc-900/40 px-4 py-2 text-[11px] text-zinc-400 flex items-center justify-between font-mono">
-                    <span>API Endpoint: v1/servers</span>
-                    <span className="text-emerald-400">Response time: ~48ms</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Solutions", href: "/#developer-section" },
+            { label: "Developers & DevOps" },
+          ]}
+          eyebrow="Developer Cloud Infrastructure"
+          title="Cloud Infrastructure Built"
+          titleHighlight="for Developers & DevOps."
+          description="Fast KVM virtual servers, Git push-to-deploy, REST APIs, and official Terraform modules with root SSH access. Predictable billing without complex cloud calculators."
+          primaryCta={{
+            text: "Deploy Cloud VPS",
+            href: "/products/cloud-vps",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "View API Documentation",
+            href: "/resources",
+            variant: "outline",
+            icon: Terminal,
+          }}
+          benefits={[
+            "Official Terraform Provider",
+            "REST API & CLI Tooling",
+            "Direct Git Push Deployments",
+          ]}
+          preview={<DeveloperQuickstartPreview />}
+        />
 
         {/* DEVELOPER FEATURES PILLARS */}
         <section className="py-16 sm:py-20 border-b border-border">

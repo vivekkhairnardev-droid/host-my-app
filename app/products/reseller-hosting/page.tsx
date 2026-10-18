@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { HostingPlanPreview } from "@/components/hero-previews/hosting-plan-preview";
 import {
   ArrowsClockwise,
   Users,
@@ -104,104 +106,57 @@ export default function ResellerHostingPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Reseller Hosting</span>
-            </nav>
-
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>100% White-Label · cPanel/WHM · WHMCS Billing</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  White-Label Reseller Hosting for Agencies &amp; Developers.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Host client websites under your own brand with Web Host Manager (WHM), custom private nameservers, automated client invoicing via WHMCS, and Gen4 NVMe storage arrays with overselling enabled.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a href="#plans" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>View Reseller Packages</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </a>
-                  <a href="#calculator" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>Profit Calculator</span>
-                  </a>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">100%</p>
-                    <p className="text-xs text-muted-foreground">White-Label Branding</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">WHMCS</p>
-                    <p className="text-xs text-muted-foreground">Automated Billing</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">Enabled</p>
-                    <p className="text-xs text-muted-foreground">Overselling Allowed</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Reseller Infrastructure Specifications */}
-              <div className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-3">
-                    <h2 className="text-sm font-bold text-foreground">Reseller Architecture Scope</h2>
-                    <span className="rounded border border-border bg-muted px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
-                      cPanel / WHM
-                    </span>
-                  </div>
-
-                  <div className="space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Account Management:</span>
-                      <span className="font-semibold text-foreground">WHM Root Suite (Create &amp; Manage Accounts)</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Custom Nameservers:</span>
-                      <span className="font-semibold text-foreground">ns1.yourdomain.com / ns2.yourdomain.com</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Billing Automation:</span>
-                      <span className="font-semibold text-foreground">WHMCS integration for invoicing &amp; provisioning</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Resource Allocation:</span>
-                      <span className="font-semibold text-foreground">Overselling enabled to maximize agency margins</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Client Security:</span>
-                      <span className="font-semibold text-foreground">Isolated cPanel environments with AutoSSL</span>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md border border-border bg-muted/40 p-3 text-center">
-                    <span className="text-xs font-medium text-muted-foreground">
-                      Zero mention of Nexora on any client-facing interfaces
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Products", href: "/#hosting-plans" },
+            { label: "Reseller Hosting" },
+          ]}
+          eyebrow="White-Label Reseller Hosting"
+          title="High-Margin Reseller Hosting"
+          titleHighlight="for Agencies & Web Hosts."
+          description="Sell web hosting under your own brand with Web Host Manager (WHM), custom private nameservers, and automated client billing via WHMCS. High-speed Gen4 NVMe arrays with overselling enabled for maximum profitability."
+          primaryCta={{
+            text: "View Reseller Plans",
+            href: "#plans",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Calculate Profit Margins",
+            href: "#calculator",
+            variant: "outline",
+            icon: CurrencyDollar,
+          }}
+          benefits={[
+            "100% White-Label Nameservers",
+            "WHM & cPanel Automation",
+            "Free WHMCS Billing Ready",
+          ]}
+          preview={
+            <HostingPlanPreview
+              planName="Reseller Gold Package"
+              tagline="50 cPanel Accounts with 250 GB Pure NVMe RAID-10"
+              price="$24.99"
+              period="/ month"
+              badge="Agency Choice"
+              specs={[
+                { label: "cPanel Accounts", value: "50 Accounts" },
+                { label: "NVMe Storage", value: "250 GB RAID-10" },
+                { label: "Bandwidth", value: "6 TB Monthly" },
+                { label: "Nameservers", value: "Private / Custom" },
+              ]}
+              features={[
+                "WHM root-level account creation",
+                "Overselling enabled for maximum margins",
+                "Free automated WHMCS license support",
+                "Assisted migration for all client sites",
+              ]}
+              ctaLink="#plans"
+              ctaText="Explore Reseller Tiers"
+            />
+          }
+        />
 
         {/* INTERACTIVE PROFIT CALCULATOR */}
         <section id="calculator" className="py-16 sm:py-20 bg-muted/20 border-b border-border">

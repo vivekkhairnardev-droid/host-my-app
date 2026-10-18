@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { ResourcesQuickstartPreview } from "@/components/hero-previews/resources-quickstart-preview";
 import {
   BookOpen,
   Terminal,
@@ -96,44 +98,34 @@ export default function ResourcesPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Resources &amp; Documentation</span>
-            </nav>
-
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                <span>Documentation, Tutorials &amp; Architecture Blueprints</span>
-              </div>
-
-              <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                Engineering Guides &amp; Documentation.
-              </h1>
-
-              <p className="text-base text-muted-foreground sm:text-lg leading-relaxed">
-                Technical documentation, step-by-step server guides, API references, and architecture blueprints written by our cloud engineering team.
-              </p>
-
-              {/* Search Bar */}
-              <div className="pt-2 max-w-lg mx-auto">
-                <div className="relative">
-                  <MagnifyingGlass className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                  <input
-                    type="text"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search guides (e.g. Ubuntu, Docker, Nginx, PostgreSQL, API)..."
-                    className="w-full rounded-md border border-border bg-card pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-xs"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Resources & Documentation" },
+          ]}
+          eyebrow="Engineering Knowledge Base"
+          title="Technical Documentation &"
+          titleHighlight="Server Engineering Guides."
+          description="Step-by-step tutorials, server configuration manuals, API references, and architecture blueprints written and tested by our cloud engineering team."
+          primaryCta={{
+            text: "Browse Knowledge Base",
+            href: "#categories",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "System Status",
+            href: "https://status.nexoracloud.com",
+            variant: "outline",
+            icon: BookOpen,
+          }}
+          benefits={[
+            "Verified Linux & Docker Guides",
+            "Full REST API Documentation",
+            "24/7 Human Engineering Support",
+          ]}
+          preview={<ResourcesQuickstartPreview />}
+        />
 
         {/* ARTICLES & GUIDES DIRECTORY */}
         <section className="py-16 sm:py-20 border-b border-border">

@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { HostingPlanPreview } from "@/components/hero-previews/hosting-plan-preview";
 import {
   Globe,
   Lightning,
@@ -147,124 +149,96 @@ export default function WebHostingPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Products", href: "/#hosting-plans" },
+            { label: "Web Hosting" },
+          ]}
+          eyebrow="Managed Web Hosting"
+          title="Fast, Reliable Web Hosting"
+          titleHighlight="for Business Websites."
+          description="High-speed NVMe storage, LiteSpeed caching, and automated daily backups for business websites, portfolios, and blogs. Simple cPanel management backed by 24/7 human engineering support."
+          primaryCta={{
+            text: "View Hosting Plans",
+            href: "#plans",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Check Domain Availability",
+            href: "#domain-search",
+            variant: "outline",
+            icon: MagnifyingGlass,
+          }}
+          benefits={[
+            "Free SSL Certificate",
+            "Automated Daily Backups",
+            "Free Migration Assistance",
+          ]}
+          preview={
+            <HostingPlanPreview
+              planName="Business Pro Plan"
+              tagline="High-speed LiteSpeed NVMe hosting with unmetered bandwidth"
+              price="$2.99"
+              period="/ month"
+              badge="Most Popular"
+              specs={[
+                { label: "Websites", value: "Unlimited" },
+                { label: "Storage", value: "150 GB NVMe" },
+                { label: "Bandwidth", value: "Unmetered" },
+                { label: "Server Engine", value: "LiteSpeed" },
+              ]}
+              features={[
+                "Enterprise LiteSpeed caching built-in",
+                "Automated daily offsite backups",
+                "Free Wildcard SSL certificates",
+                "Isolated cPanel account environments",
+              ]}
+              ctaLink="#plans"
+              ctaText="View All Plans"
+            />
+          }
+        />
+
+        {/* DOMAIN SEARCH SECTION */}
+        <section id="domain-search" className="border-b border-border bg-muted/20 py-8">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Web Hosting</span>
-            </nav>
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Domain Availability Lookup
+              </h2>
+              <p className="mt-1 text-base font-bold text-foreground">
+                Find and secure your web address with your hosting package
+              </p>
 
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>Gen4 NVMe · LiteSpeed Enterprise · cPanel</span>
+              <form onSubmit={handleDomainCheck} className="mt-4 flex flex-col sm:flex-row gap-2">
+                <div className="relative flex-1">
+                  <MagnifyingGlass className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                  <input
+                    type="text"
+                    placeholder="Check domain availability (e.g. mycompany.com)"
+                    value={domainSearch}
+                    onChange={(e) => setDomainSearch(e.target.value)}
+                    className="w-full rounded-md border border-border bg-card pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-xs"
+                  />
                 </div>
+                <Button type="submit" className="font-medium shadow-xs">
+                  Check Domain
+                </Button>
+              </form>
 
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  High-Performance Web Hosting for Production Sites.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Enterprise-grade LiteSpeed caching, automated daily backups, free SSL certificates, and a 99.99% uptime guarantee. Built for fast loading times and straightforward management.
-                </p>
-
-                {/* Domain Checker Bar */}
-                <div className="pt-2 max-w-xl">
-                  <form onSubmit={handleDomainCheck} className="flex flex-col sm:flex-row gap-2">
-                    <div className="relative flex-1">
-                      <MagnifyingGlass className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                      <input
-                        type="text"
-                        placeholder="Check domain availability (e.g. mycompany.com)"
-                        value={domainSearch}
-                        onChange={(e) => setDomainSearch(e.target.value)}
-                        className="w-full rounded-md border border-border bg-card pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-xs"
-                      />
-                    </div>
-                    <Button type="submit" className="font-medium shadow-xs">
-                      Check Domain
-                    </Button>
-                  </form>
-                  {domainResult && (
-                    <div className="mt-2.5 flex items-center gap-2 rounded-md border border-border bg-muted/40 px-3 py-2 text-xs font-medium text-foreground">
-                      <CheckCircle weight="fill" className="size-4 shrink-0 text-primary" />
-                      <span>{domainResult}</span>
-                    </div>
-                  )}
+              {domainResult && (
+                <div className="mt-3 flex items-center justify-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs font-medium text-foreground shadow-xs">
+                  <CheckCircle weight="fill" className="size-4 shrink-0 text-primary" />
+                  <span>{domainResult}</span>
                 </div>
-
-                {/* Key Specifications Strip */}
-                <div className="grid grid-cols-2 gap-4 pt-4 sm:grid-cols-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <div className="text-xs font-bold text-foreground">LiteSpeed Web Server</div>
-                    <p className="text-xs text-muted-foreground">Built-in LSCache</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <div className="text-xs font-bold text-foreground">Free AutoSSL</div>
-                    <p className="text-xs text-muted-foreground">Automated Let&apos;s Encrypt</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <div className="text-xs font-bold text-foreground">Custom Mailboxes</div>
-                    <p className="text-xs text-muted-foreground">IMAP/SMTP with Webmail</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <div className="text-xs font-bold text-foreground">Free Migration</div>
-                    <p className="text-xs text-muted-foreground">Zero downtime transfer</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Platform Specifications Card */}
-              <div className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-3">
-                    <h2 className="text-sm font-bold text-foreground">Hosting Environment Details</h2>
-                    <span className="rounded border border-border bg-muted px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
-                      Tier III+ Datacenters
-                    </span>
-                  </div>
-
-                  <div className="space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Web Server Engine:</span>
-                      <span className="font-semibold text-foreground">LiteSpeed Enterprise (LSWS)</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Storage Array:</span>
-                      <span className="font-semibold text-foreground">Enterprise Gen4 PCIe NVMe (RAID-10)</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">PHP Support:</span>
-                      <span className="font-semibold text-foreground">PHP 7.4 through PHP 8.3 (Selector)</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Database Engine:</span>
-                      <span className="font-semibold text-foreground">MariaDB 10.11 LTS with InnoDB</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Security Layer:</span>
-                      <span className="font-semibold text-foreground">Imunify360 WAF &amp; Malware Scanner</span>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md border border-border bg-muted/40 p-3 text-center">
-                    <span className="text-xs font-medium text-muted-foreground">
-                      Backed by our 30-day money-back guarantee
-                    </span>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
+
+
 
         {/* PRICING PLANS */}
         <section id="plans" className="py-16 sm:py-20 bg-muted/20 border-b border-border">

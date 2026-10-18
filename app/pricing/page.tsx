@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { PricingSummaryPreview } from "@/components/hero-previews/pricing-summary-preview";
 import {
   Check,
   ArrowRight,
@@ -44,80 +46,86 @@ export default function PricingPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Pricing Hub</span>
-            </nav>
-
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                <span>Transparent &amp; Predictable Cloud Pricing</span>
-              </div>
-
-              <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                Simple Plans. Zero Hidden Egress Fees.
-              </h1>
-
-              <p className="text-base text-muted-foreground sm:text-lg leading-relaxed">
-                No complex billing formulas, no surprise bandwidth egress invoices, and no renewal price hikes. All products include a 30-day money-back guarantee.
-              </p>
-
-              {/* Controls: Billing Toggle & Currency Switcher */}
-              <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-                {/* Billing toggle */}
-                <div className="inline-flex items-center rounded-md border border-border bg-muted p-1">
-                  <button
-                    onClick={() => setIsAnnual(false)}
-                    className={cn(
-                      "rounded px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
-                      !isAnnual ? "bg-background text-foreground shadow-xs font-semibold" : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    Monthly Billing
-                  </button>
-                  <button
-                    onClick={() => setIsAnnual(true)}
-                    className={cn(
-                      "flex items-center gap-1.5 rounded px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
-                      isAnnual ? "bg-background text-foreground shadow-xs font-semibold" : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    <span>Annual Billing</span>
-                    <span className="rounded bg-primary/10 px-1.5 py-0.2 text-[10px] font-semibold text-primary">
-                      Save 20%
-                    </span>
-                  </button>
-                </div>
-
-                {/* Currency Switcher */}
-                <div className="inline-flex items-center rounded-md border border-border bg-muted p-1">
-                  {currencies.map((c, i) => (
-                    <button
-                      key={c.code}
-                      onClick={() => setCurrencyIndex(i)}
-                      className={cn(
-                        "rounded px-2.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
-                        currencyIndex === i
-                          ? "bg-background text-foreground shadow-xs font-semibold"
-                          : "text-muted-foreground hover:text-foreground"
-                      )}
-                    >
-                      {c.code}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Pricing Hub" },
+          ]}
+          eyebrow="Transparent Cloud Infrastructure Pricing"
+          title="Simple, Predictable Plans"
+          titleHighlight="with Zero Hidden Egress Fees."
+          description="No complex billing formulas, no surprise bandwidth egress invoices, and no renewal price hikes. All products include unmetered DDoS mitigation and a 30-day money-back guarantee."
+          primaryCta={{
+            text: "Compare All Plans",
+            href: "#plans",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Configure Cloud VPS",
+            href: "/products/cloud-vps",
+            variant: "outline",
+            icon: Cloud,
+          }}
+          benefits={[
+            "Transparent Monthly & Hourly Rates",
+            "Zero Bandwidth Egress Gotchas",
+            "30-Day Full Refund Guarantee",
+          ]}
+          preview={<PricingSummaryPreview />}
+        />
 
         {/* PRICING PLANS BY CATEGORY */}
-        <section className="py-16 sm:py-20 border-b border-border">
+        <section id="plans" className="py-16 sm:py-20 border-b border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* Top Controls: Billing Toggle & Currency Switcher */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              {/* Billing toggle */}
+              <div className="inline-flex items-center rounded-md border border-border bg-muted p-1">
+                <button
+                  type="button"
+                  onClick={() => setIsAnnual(false)}
+                  className={cn(
+                    "rounded px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
+                    !isAnnual ? "bg-background text-foreground shadow-xs font-semibold" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  Monthly Billing
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsAnnual(true)}
+                  className={cn(
+                    "flex items-center gap-1.5 rounded px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
+                    isAnnual ? "bg-background text-foreground shadow-xs font-semibold" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  <span>Annual Billing</span>
+                  <span className="rounded bg-primary/10 px-1.5 py-0.2 text-[10px] font-semibold text-primary">
+                    Save 20%
+                  </span>
+                </button>
+              </div>
+
+              {/* Currency Switcher */}
+              <div className="inline-flex items-center rounded-md border border-border bg-muted p-1">
+                {currencies.map((c, i) => (
+                  <button
+                    key={c.code}
+                    type="button"
+                    onClick={() => setCurrencyIndex(i)}
+                    className={cn(
+                      "rounded px-2.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
+                      currencyIndex === i
+                        ? "bg-background text-foreground shadow-xs font-semibold"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {c.code}
+                  </button>
+                ))}
+              </div>
+            </div>
             {/* Category Switcher Tabs */}
             <div className="flex flex-wrap items-center justify-center gap-1.5 mb-10">
               {[

@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { EnterpriseCompliancePreview } from "@/components/hero-previews/enterprise-compliance-preview";
 import {
   Buildings,
   ShieldCheck,
@@ -67,120 +69,103 @@ export default function BusinessesPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Solutions</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Businesses &amp; Startups</span>
-            </nav>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Solutions", href: "/#business-section" },
+            { label: "Businesses & Startups" },
+          ]}
+          eyebrow="Enterprise Cloud Infrastructure"
+          title="Enterprise Cloud Infrastructure"
+          titleHighlight="Built for Scale."
+          description="Support mission-critical applications with a 99.99% financial uptime SLA, compliance-ready security, predictable flat billing, and dedicated systems engineers available 24/7."
+          primaryCta={{
+            text: "Schedule Technical Consultation",
+            href: "#consultation",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Explore Dedicated Solutions",
+            href: "/products/dedicated-servers",
+            variant: "outline",
+            icon: Buildings,
+          }}
+          benefits={[
+            "99.99% Financial SLA",
+            "SOC 2 & ISO 27001 Ready",
+            "Dedicated Account Engineer",
+          ]}
+          preview={<EnterpriseCompliancePreview />}
+        />
 
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>99.99% SLA · SOC 2 Type II · Dedicated Support Channel</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  Enterprise Cloud Infrastructure Built for Scale.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Support mission-critical applications with a 99.99% uptime guarantee, compliance-ready security, predictable flat billing, and dedicated systems engineers available 24/7.
+        {/* CONSULTATION INTAKE SECTION */}
+        <section id="consultation" className="border-b border-border bg-muted/20 py-12 sm:py-16">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-lg border border-border bg-card p-6 sm:p-8 shadow-xs">
+              <div className="space-y-1 mb-6 text-center">
+                <h2 className="text-xl font-bold text-foreground">Speak with an Enterprise Cloud Architect</h2>
+                <p className="text-xs text-muted-foreground max-w-lg mx-auto">
+                  Request an architecture assessment, migration roadmap, and custom volume pricing tailored to your workload.
                 </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a href="#consultation" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>Schedule Technical Consultation</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </a>
-                  <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>View Transparent Pricing</span>
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">99.99%</p>
-                    <p className="text-xs text-muted-foreground">Uptime Guarantee SLA</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">SOC 2</p>
-                    <p className="text-xs text-muted-foreground">Type II Certified</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">Flat Rate</p>
-                    <p className="text-xs text-muted-foreground">Predictable Invoicing</p>
-                  </div>
-                </div>
               </div>
 
-              {/* Consultation form card */}
-              <div id="consultation" className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs">
-                  <div className="space-y-1 mb-5">
-                    <h3 className="text-base font-bold text-foreground">Speak with an Enterprise Architect</h3>
-                    <p className="text-xs text-muted-foreground">
-                      Request an architecture assessment, migration review, and volume pricing.
-                    </p>
-                  </div>
-
-                  {formSubmitted ? (
-                    <div className="rounded-md border border-border bg-muted/30 p-6 text-center space-y-2">
-                      <CheckCircle weight="fill" className="size-8 text-primary mx-auto" />
-                      <h4 className="text-sm font-bold text-foreground">Consultation Request Received</h4>
-                      <p className="text-xs text-muted-foreground">
-                        Our cloud architecture team will review your specifications and contact you within 2 business hours.
-                      </p>
+              {formSubmitted ? (
+                <div className="rounded-md border border-border bg-muted/30 p-8 text-center space-y-2">
+                  <CheckCircle weight="fill" className="size-8 text-primary mx-auto" />
+                  <h3 className="text-base font-bold text-foreground">Consultation Request Received</h3>
+                  <p className="text-xs text-muted-foreground">
+                    Our enterprise architecture team will review your requirements and reach out within 2 business hours.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Work Email</label>
+                      <input
+                        required
+                        type="email"
+                        placeholder="alex@company.com"
+                        className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
+                      />
                     </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-3 text-xs">
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Work Email</label>
-                        <input
-                          required
-                          type="email"
-                          placeholder="alex@company.com"
-                          className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Company Name</label>
-                        <input
-                          required
-                          type="text"
-                          placeholder="Acme Technologies Inc."
-                          className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Estimated Monthly Cloud Budget</label>
-                        <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
-                          <option>$500 - $2,500 / month</option>
-                          <option>$2,500 - $10,000 / month</option>
-                          <option>$10,000+ / month</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="font-medium text-foreground block mb-1">Primary Infrastructure Requirement</label>
-                        <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
-                          <option>High-Availability Multi-Region Web Cluster</option>
-                          <option>Cloud Migration from AWS / GCP / Azure</option>
-                          <option>High-IOPS Database Servers (PostgreSQL / MySQL)</option>
-                          <option>Dedicated Bare-Metal Server Deployment</option>
-                        </select>
-                      </div>
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Company Name</label>
+                      <input
+                        required
+                        type="text"
+                        placeholder="Acme Technologies Inc."
+                        className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none"
+                      />
+                    </div>
+                  </div>
 
-                      <Button type="submit" className="w-full mt-2 font-medium">
-                        Request Enterprise Consultation
-                      </Button>
-                    </form>
-                  )}
-                </div>
-              </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Estimated Monthly Cloud Budget</label>
+                      <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
+                        <option>$500 - $2,500 / month</option>
+                        <option>$2,500 - $10,000 / month</option>
+                        <option>$10,000+ / month</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="font-medium text-foreground block mb-1">Primary Infrastructure Requirement</label>
+                      <select className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground focus:border-primary focus:outline-none">
+                        <option>High-Availability Multi-Region Web Cluster</option>
+                        <option>Cloud Migration from AWS / GCP / Azure</option>
+                        <option>High-IOPS Database Servers (PostgreSQL / MySQL)</option>
+                        <option>Dedicated Bare-Metal Server Deployment</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full mt-2 font-medium">
+                    Request Enterprise Consultation
+                  </Button>
+                </form>
+              )}
             </div>
           </div>
         </section>

@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { NetworkDiagnosticsPreview } from "@/components/hero-previews/network-diagnostics-preview";
 import {
   Globe,
   Lightning,
@@ -174,50 +176,34 @@ export default function LocationsPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Locations &amp; Network</span>
-            </nav>
-
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                <span>Tier-1 Global Anycast Backbone</span>
-              </div>
-
-              <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                Global Datacenter Infrastructure &amp; Network Backbone.
-              </h1>
-
-              <p className="text-base text-muted-foreground sm:text-lg leading-relaxed">
-                Interconnected via a 40 Gbps private fiber backbone with direct peering at DE-CIX, AMS-IX, LINX, and NYIIX. Low latency connectivity to worldwide internet users.
-              </p>
-
-              {/* Quick stats banner */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-3xl mx-auto">
-                <div className="rounded-md border border-border bg-card p-3 text-center">
-                  <p className="text-xl font-bold text-foreground">8</p>
-                  <p className="text-xs text-muted-foreground">Global Facilities</p>
-                </div>
-                <div className="rounded-md border border-border bg-card p-3 text-center">
-                  <p className="text-xl font-bold text-foreground">40 Gbps</p>
-                  <p className="text-xs text-muted-foreground">Redundant Uplinks</p>
-                </div>
-                <div className="rounded-md border border-border bg-card p-3 text-center">
-                  <p className="text-xl font-bold text-foreground">3.2 Tbps</p>
-                  <p className="text-xs text-muted-foreground">DDoS Mitigation</p>
-                </div>
-                <div className="rounded-md border border-border bg-card p-3 text-center">
-                  <p className="text-xl font-bold text-foreground">99.99%</p>
-                  <p className="text-xs text-muted-foreground">Network Core SLA</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Locations & Network" },
+          ]}
+          eyebrow="Global Datacenter Network"
+          title="Global Datacenter Network &"
+          titleHighlight="Anycast Edge Infrastructure."
+          description="Interconnected across North America, Europe, and Asia-Pacific via redundant 40 Gbps carrier-diverse backbones. Low-latency edge transit paired with 3.2 Tbps DDoS scrubbing."
+          primaryCta={{
+            text: "Test Looking Glass",
+            href: "#looking-glass",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Explore Facilities",
+            href: "#facilities",
+            variant: "outline",
+            icon: Globe,
+          }}
+          benefits={[
+            "Tier III+ Certified Facilities",
+            "Multi-Homed Tier-1 Carriers",
+            "Sub-15ms Regional Latency",
+          ]}
+          preview={<NetworkDiagnosticsPreview />}
+        />
 
         {/* INTERACTIVE LOOKING GLASS & REGIONS SECTION */}
         <section className="py-16 sm:py-20 border-b border-border">

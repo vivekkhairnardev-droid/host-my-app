@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { HostingPlanPreview } from "@/components/hero-previews/hosting-plan-preview";
 import {
   Browsers,
   Lightning,
@@ -163,104 +165,57 @@ export default function WordPressHostingPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">WordPress Hosting</span>
-            </nav>
-
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>LiteSpeed LSCache · Redis · Staging Environments</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  Managed WordPress Hosting Engineered for Performance.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Fast page load times, 1-click staging environments, Redis object caching, and automated security patching. Built specifically for WordPress and WooCommerce workloads.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a href="#plans" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>View WordPress Plans</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </a>
-                  <Link href="/solutions/migration" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>Free Site Migration</span>
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">&lt; 200ms</p>
-                    <p className="text-xs text-muted-foreground">Average Global TTFB</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">1-Click</p>
-                    <p className="text-xs text-muted-foreground">Staging &amp; Cloning</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">WooCommerce</p>
-                    <p className="text-xs text-muted-foreground">Optimized Caching</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Platform Specifications */}
-              <div className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-3">
-                    <h2 className="text-sm font-bold text-foreground">WordPress Stack Profile</h2>
-                    <span className="rounded border border-border bg-muted px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
-                      PHP 8.3 Ready
-                    </span>
-                  </div>
-
-                  <div className="space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Caching Engine:</span>
-                      <span className="font-semibold text-foreground">LiteSpeed Cache (LSCache) + Redis</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">PHP Memory Limit:</span>
-                      <span className="font-semibold text-foreground">512 MB to 1024 MB Guaranteed</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Staging Tool:</span>
-                      <span className="font-semibold text-foreground">1-Click Clone &amp; Push to Production</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Backup Schedule:</span>
-                      <span className="font-semibold text-foreground">Automated Daily (30-day retention)</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Developer Tooling:</span>
-                      <span className="font-semibold text-foreground">WP-CLI, Git, Composer, SSH</span>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md border border-border bg-muted/40 p-3 text-center">
-                    <span className="text-xs font-medium text-muted-foreground">
-                      Free assisted migration with zero downtime
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Products", href: "/#hosting-plans" },
+            { label: "WordPress Hosting" },
+          ]}
+          eyebrow="Managed WordPress Infrastructure"
+          title="Optimized WordPress Hosting"
+          titleHighlight="with Server-Level Caching."
+          description="Server-side LiteSpeed and Redis caching, 1-click staging environments, and automated WordPress core updates. Engineered to eliminate slow loading times on high-traffic sites and WooCommerce stores."
+          primaryCta={{
+            text: "View WordPress Plans",
+            href: "#plans",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Explore Managed Features",
+            href: "#features",
+            variant: "outline",
+            icon: Lightning,
+          }}
+          benefits={[
+            "LiteSpeed & Redis Caching",
+            "1-Click Staging & Cloning",
+            "Automated WordPress Updates",
+          ]}
+          preview={
+            <HostingPlanPreview
+              planName="WordPress Pro"
+              tagline="Optimized for WooCommerce stores & dynamic blogs"
+              price="$4.99"
+              period="/ month"
+              badge="LSCache Ready"
+              specs={[
+                { label: "PHP Memory", value: "1024 MB" },
+                { label: "Cache Engine", value: "Redis + LSWS" },
+                { label: "Staging Clone", value: "1-Click" },
+                { label: "Storage", value: "75 GB NVMe" },
+              ]}
+              features={[
+                "Server-level LiteSpeed page caching",
+                "Redis object caching pre-configured",
+                "Automatic WordPress core & plugin patches",
+                "Free white-glove site migration included",
+              ]}
+              ctaLink="#plans"
+              ctaText="View All Plans"
+            />
+          }
+        />
 
         {/* PRICING PLANS */}
         <section id="plans" className="py-16 sm:py-20 bg-muted/20 border-b border-border">

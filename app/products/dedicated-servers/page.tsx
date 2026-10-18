@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { DedicatedConfigPreview } from "@/components/hero-previews/dedicated-config-preview";
 import {
   HardDrives,
   Cpu,
@@ -104,104 +106,50 @@ export default function DedicatedServersPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="border-b border-border bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Dedicated Servers</span>
-            </nav>
-
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span>Single-Tenant Bare Metal · Full IPMI Access · 10-40 Gbps</span>
-                </div>
-
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  Dedicated Bare-Metal Servers. Zero Hypervisor Overhead.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Dedicated AMD EPYC™ and Intel® Xeon® hardware with ECC DDR5 memory, hardware RAID arrays, redundant network uplinks, and complete out-of-band IPMI remote management.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a href="#inventory" className={cn(buttonVariants({ size: "default" }), "font-medium shadow-xs")}>
-                    <span>View Server Fleet</span>
-                    <ArrowRight weight="bold" className="ml-1.5 size-3.5" />
-                  </a>
-                  <Link href="/locations" className={cn(buttonVariants({ variant: "outline", size: "default" }), "font-medium")}>
-                    <span>Datacenter Facilities</span>
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">100%</p>
-                    <p className="text-xs text-muted-foreground">Dedicated Hardware</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">Up to 40G</p>
-                    <p className="text-xs text-muted-foreground">Uplink Capacity</p>
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-lg font-bold text-foreground">IPMI / KVM</p>
-                    <p className="text-xs text-muted-foreground">Out-of-Band Control</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Hardware Management Profile */}
-              <div className="lg:col-span-5">
-                <div className="rounded-lg border border-border bg-card p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-3">
-                    <h2 className="text-sm font-bold text-foreground">Bare-Metal Standard Configuration</h2>
-                    <span className="rounded border border-border bg-muted px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
-                      Enterprise Grade
-                    </span>
-                  </div>
-
-                  <div className="space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Hardware RAID Controller:</span>
-                      <span className="font-semibold text-foreground">Broadcom MegaRAID 9560-8i (CacheVault)</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Remote Administration:</span>
-                      <span className="font-semibold text-foreground">Dedicated Out-of-Band IPMI 2.0 / iDRAC</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Network Redundancy:</span>
-                      <span className="font-semibold text-foreground">Dual redundant LACP NICs to diverse switches</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Power Architecture:</span>
-                      <span className="font-semibold text-foreground">Dual redundant hot-swap PSUs (A+B feeds)</span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-md border border-border bg-muted/20 p-2.5">
-                      <span className="text-muted-foreground">Custom OS Options:</span>
-                      <span className="font-semibold text-foreground">Ubuntu, Debian, AlmaLinux, Proxmox, ESXi</span>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md border border-border bg-muted/40 p-3 text-center">
-                    <span className="text-xs font-medium text-muted-foreground">
-                      Deployable in Frankfurt, London, New York &amp; San Jose
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Products", href: "/#hosting-plans" },
+            { label: "Dedicated Servers" },
+          ]}
+          eyebrow="Dedicated Server Infrastructure"
+          title="Dedicated Server Performance"
+          titleHighlight="Without Compromise."
+          description="Single-tenant bare-metal AMD EPYC and Intel Xeon servers with ECC DDR5 memory, hardware NVMe RAID arrays, and dedicated 10 Gbps unmetered uplinks. Full out-of-band IPMI remote management included."
+          primaryCta={{
+            text: "Explore Server Configurations",
+            href: "#inventory",
+            icon: ArrowRight,
+          }}
+          secondaryCta={{
+            text: "Contact Sales",
+            href: "/solutions/businesses",
+            variant: "outline",
+            icon: Globe,
+          }}
+          benefits={[
+            "Single-Tenant Bare Metal",
+            "Hardware RAID-10 NVMe",
+            "Out-of-Band IPMI Console",
+          ]}
+          preview={
+            <DedicatedConfigPreview
+              modelName="AMD EPYC™ 9354 Dedicated"
+              badge="Single-Tenant Bare Metal"
+              cpu="AMD EPYC™ 9354 (Genoa)"
+              cpuCores="32 Cores / 64 Threads @ 3.8 GHz"
+              ram="128 GB DDR5 ECC 4800 MHz"
+              storage="2x 1.92 TB PCIe 4.0 NVMe RAID-1"
+              network="10 Gbps Dedicated Uplink (Unmetered)"
+              remoteConsole="Dedicated IPMI / KVM over IP"
+              price="$89.00"
+              period="/ month"
+              ctaLink="#inventory"
+              ctaText="View Server Fleet"
+            />
+          }
+        />
 
         {/* INVENTORY LIST */}
         <section id="inventory" className="py-16 sm:py-20 bg-muted/20 border-b border-border">

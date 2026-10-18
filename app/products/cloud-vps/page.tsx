@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { InnerHero } from "@/components/inner-hero";
+import { VpsConfigPreview } from "@/components/hero-previews/vps-config-preview";
 import {
   Cloud,
   Cpu,
@@ -382,226 +384,51 @@ export default function CloudVpsPage() {
         {/* ========================================================================= */}
         {/* HERO SECTION                                                             */}
         {/* ========================================================================= */}
-        <section className="relative border-b border-border bg-background py-16 sm:py-20">
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="text-muted-foreground">Products</span>
-              <span>/</span>
-              <span className="text-foreground font-semibold">Cloud VPS</span>
-            </nav>
-
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-              {/* Left Column: Hero Text */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-md border border-border bg-muted/60 px-3 py-1 text-xs font-medium text-foreground">
-                  <Cpu weight="bold" className="size-3.5 text-primary" />
-                  <span>AMD EPYC™ 9654 & PCIe 4.0 NVMe Compute</span>
-                </div>
-
-                <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.12]">
-                  High-Performance <span className="text-primary">Cloud VPS</span>. Zero Resource Throttling.
-                </h1>
-
-                <p className="max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
-                  Provision fully isolated KVM cloud virtual servers in seconds. Powered by dedicated DDR5 memory, lightning-fast Gen4 NVMe arrays, and a 40 Gbps global backbone with carrier-grade DDoS shielding.
-                </p>
-
-                {/* Hero CTAs */}
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <a
-                    href="#plans"
-                    className={cn(
-                      buttonVariants({ size: "lg" }),
-                      "rounded-md px-6 font-semibold text-sm gap-2"
-                    )}
-                  >
-                    <span>Deploy Cloud VPS</span>
-                    <ArrowRight weight="bold" className="size-4" />
-                  </a>
-
-                  <a
-                    href="#configurator"
-                    className={cn(
-                      buttonVariants({ variant: "outline", size: "lg" }),
-                      "rounded-md px-6 font-medium text-sm gap-2"
-                    )}
-                  >
-                    <Sliders weight="bold" className="size-4 text-primary" />
-                    <span>Live Configurator</span>
-                  </a>
-                </div>
-
-                {/* Quick Trust Highlights */}
-                <div className="grid grid-cols-2 gap-4 pt-6 sm:grid-cols-4 border-t border-border">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
-                      <Lightning weight="fill" className="size-4 text-primary" />
-                      <span>&lt; 30s Provisioning</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">Automated cloud-init</p>
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
-                      <ShieldCheck weight="fill" className="size-4 text-primary" />
-                      <span>3.2 Tbps DDoS</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">Always-on filtration</p>
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
-                      <HardDrives weight="fill" className="size-4 text-primary" />
-                      <span>1.2M NVMe IOPS</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">Enterprise Gen4 RAID</p>
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
-                      <Globe weight="fill" className="size-4 text-primary" />
-                      <span>7+ Regions</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">Sub-15ms edge latency</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Live Interactive Instance Card Preview */}
-              <div className="lg:col-span-5">
-                <div className="relative mx-auto w-full max-w-md rounded-lg border border-border bg-card p-5 shadow-xs">
-                  {/* Clean header */}
-                  <div className="flex items-center justify-between border-b border-border pb-3">
-                    <span className="font-mono text-xs font-medium text-muted-foreground">
-                      node-{selectedRegion}-01.nexora.cloud
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 rounded bg-muted px-2 py-0.5 text-[11px] font-medium text-foreground">
-                      <span className="size-1.5 rounded-full bg-emerald-600 dark:bg-emerald-500" />
-                      Active Node
-                    </span>
-                  </div>
-
-                  {/* Active Spec Telemetry Display */}
-                  <div className="mt-4 space-y-4">
-                    <div className="flex items-center justify-between rounded-lg bg-muted/60 p-3">
-                      <div>
-                        <p className="text-xs text-muted-foreground">Current Selection</p>
-                        <p className="text-sm font-bold text-foreground">{selectedPlan.name}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-xs text-muted-foreground">Starting at</p>
-                        <p className="text-base font-extrabold text-primary">
-                          ${getPlanPrice(selectedPlan).toFixed(2)}
-                          <span className="text-xs font-normal text-muted-foreground">/mo</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Hardware Metrics Gauges */}
-                    <div className="space-y-3 font-mono text-xs">
-                      <div>
-                        <div className="flex justify-between text-muted-foreground mb-1">
-                          <span className="flex items-center gap-1.5">
-                            <Cpu className="size-3.5 text-primary" /> CPU Capacity ({selectedPlan.vCpu} Cores @ 3.7GHz)
-                          </span>
-                          <span className="text-foreground font-semibold">Healthy (99.8% Idle)</span>
-                        </div>
-                        <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
-                          <div className="h-full w-[18%] rounded-full bg-primary" />
-                        </div>
-                      </div>
-
-                      <div>
-                        <div className="flex justify-between text-muted-foreground mb-1">
-                          <span className="flex items-center gap-1.5">
-                            <SquaresFour className="size-3.5 text-accent" /> Memory Allocation ({selectedPlan.ramGb} GB DDR5)
-                          </span>
-                          <span className="text-foreground font-semibold">{selectedPlan.ramGb} GB Dedicated</span>
-                        </div>
-                        <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
-                          <div className="h-full w-[28%] rounded-full bg-accent" />
-                        </div>
-                      </div>
-
-                      <div>
-                        <div className="flex justify-between text-muted-foreground mb-1">
-                          <span className="flex items-center gap-1.5">
-                            <HardDrives className="size-3.5 text-emerald-500" /> NVMe Storage ({selectedPlan.diskGb} GB Gen4)
-                          </span>
-                          <span className="text-foreground font-semibold">1,200,000 IOPS Max</span>
-                        </div>
-                        <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
-                          <div className="h-full w-[12%] rounded-full bg-emerald-500" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Regional Ping simulator preview */}
-                    <div className="flex items-center justify-between rounded-lg border border-border/80 bg-background/50 p-2.5 text-xs">
-                      <div className="flex items-center gap-2">
-                        <span className="text-base">{activeRegionObj.flag}</span>
-                        <div>
-                          <p className="font-semibold text-foreground">{activeRegionObj.city}, {activeRegionObj.country}</p>
-                          <p className="text-[11px] text-muted-foreground">Tier III+ Carrier Neutral</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className="inline-flex items-center gap-1 font-mono font-bold text-emerald-600 dark:text-emerald-400">
-                          <span className="size-1.5 rounded-full bg-emerald-500" />
-                          {activeRegionObj.pingMs} ms
-                        </span>
-                        <p className="text-[10px] text-muted-foreground">Avg Anycast RTT</p>
-                      </div>
-                    </div>
-
-                    {/* SSH Quick Command */}
-                    <div className="rounded-lg bg-slate-950 p-3 font-mono text-xs text-slate-200">
-                      <div className="flex items-center justify-between text-[11px] text-slate-400 mb-1.5">
-                        <span>Provisioning Command</span>
-                        <button
-                          type="button"
-                          onClick={handleCopyCommand}
-                          className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer"
-                        >
-                          {copiedCode ? (
-                            <>
-                              <Check className="size-3 text-emerald-400" />
-                              <span className="text-emerald-400">Copied</span>
-                            </>
-                          ) : (
-                            <>
-                              <Copy className="size-3" />
-                              <span>Copy</span>
-                            </>
-                          )}
-                        </button>
-                      </div>
-                      <div className="overflow-x-auto text-[11px] text-emerald-400">
-                        <code>nexora vps create --plan {selectedPlan.id} --region {selectedRegion}</code>
-                      </div>
-                    </div>
-
-                    {/* Deploy CTA inside card */}
-                    <Link
-                      href={`/deploy?plan=${selectedPlan.id}&region=${selectedRegion}&os=${selectedOS}`}
-                      className={cn(
-                        buttonVariants({ size: "default" }),
-                        "w-full rounded-md bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-xs text-center"
-                      )}
-                    >
-                      Instant Deploy {selectedPlan.name}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* UNIFIED INNER HERO */}
+        <InnerHero
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Products", href: "/#hosting-plans" },
+            { label: "Cloud VPS" },
+          ]}
+          eyebrow="High-Performance VPS"
+          title="Scalable VPS Hosting"
+          titleHighlight="with Dedicated Resources."
+          description="Provision fully isolated KVM cloud virtual servers on AMD EPYC processors and enterprise Gen4 NVMe arrays. Scale CPU, memory, and storage on demand with root SSH control and transparent pricing."
+          primaryCta={{
+            text: "Configure Your VPS",
+            href: "#configurator",
+            icon: Sliders,
+          }}
+          secondaryCta={{
+            text: "Compare VPS Plans",
+            href: "#plans",
+            variant: "outline",
+            icon: ArrowRight,
+          }}
+          benefits={[
+            "100% Dedicated KVM Cores",
+            "Full Root SSH & Out-of-Band VNC",
+            "Instant 1-Click Scaling",
+          ]}
+          preview={
+            <VpsConfigPreview
+              title="CPX-41 Production KVM"
+              badge="Ready to deploy"
+              vCpu="4 Dedicated AMD vCPU"
+              cpuModel="AMD EPYC™ 9654 @ 3.7 GHz"
+              ram="8 GB High-Speed DDR5"
+              ramType="ECC Registered"
+              storage="160 GB PCIe 4.0"
+              storageType="NVMe RAID-10"
+              bandwidth="30 TB @ 5 Gbps"
+              monthlyPrice={`$${getPlanPrice(selectedPlan).toFixed(2)}`}
+              hourlyPrice={`$${selectedPlan.hourlyPrice.toFixed(3)}/hr`}
+              ctaLink="#configurator"
+              ctaText="Configure Instance"
+            />
+          }
+        />
 
         {/* ========================================================================= */}
         {/* INTERACTIVE PLANS & PRICING GRID                                         */}
