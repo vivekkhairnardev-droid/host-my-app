@@ -128,12 +128,6 @@ export default function ManagedVPSPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Products", href: "/#hosting-plans" },
-            { label: "Managed VPS" },
-          ]}
-          eyebrow="Fully Managed Cloud VPS"
           title="High-Performance Managed VPS"
           titleHighlight="with 24/7 Expert Administration."
           description="Focus on your business while our certified Linux sysadmins handle security hardening, OS livepatching, database optimization, and daily offsite snapshots with a guaranteed 15-minute response SLA."

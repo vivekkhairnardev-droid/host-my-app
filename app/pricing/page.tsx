@@ -48,11 +48,7 @@ export default function PricingPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Pricing Hub" },
-          ]}
-          eyebrow="Transparent Cloud Infrastructure Pricing"
+          variant="centered"
           title="Simple, Predictable Plans"
           titleHighlight="with Zero Hidden Egress Fees."
           description="No complex billing formulas, no surprise bandwidth egress invoices, and no renewal price hikes. All products include unmetered DDoS mitigation and a 30-day money-back guarantee."
@@ -72,7 +68,6 @@ export default function PricingPage() {
             "Zero Bandwidth Egress Gotchas",
             "30-Day Full Refund Guarantee",
           ]}
-          preview={<PricingSummaryPreview />}
         />
 
         {/* PRICING PLANS BY CATEGORY */}

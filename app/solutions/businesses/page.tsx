@@ -71,12 +71,7 @@ export default function BusinessesPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Solutions", href: "/#business-section" },
-            { label: "Businesses & Startups" },
-          ]}
-          eyebrow="Enterprise Cloud Infrastructure"
+          variant="centered"
           title="Enterprise Cloud Infrastructure"
           titleHighlight="Built for Scale."
           description="Support mission-critical applications with a 99.99% financial uptime SLA, compliance-ready security, predictable flat billing, and dedicated systems engineers available 24/7."
@@ -96,7 +91,6 @@ export default function BusinessesPage() {
             "SOC 2 & ISO 27001 Ready",
             "Dedicated Account Engineer",
           ]}
-          preview={<EnterpriseCompliancePreview />}
         />
 
         {/* CONSULTATION INTAKE SECTION */}

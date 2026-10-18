@@ -178,11 +178,6 @@ export default function LocationsPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Locations & Network" },
-          ]}
-          eyebrow="Global Datacenter Network"
           title="Global Datacenter Network &"
           titleHighlight="Anycast Edge Infrastructure."
           description="Interconnected across North America, Europe, and Asia-Pacific via redundant 40 Gbps carrier-diverse backbones. Low-latency edge transit paired with 3.2 Tbps DDoS scrubbing."

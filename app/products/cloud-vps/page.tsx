@@ -386,12 +386,6 @@ export default function CloudVpsPage() {
         {/* ========================================================================= */}
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Products", href: "/#hosting-plans" },
-            { label: "Cloud VPS" },
-          ]}
-          eyebrow="High-Performance VPS"
           title="Scalable VPS Hosting"
           titleHighlight="with Dedicated Resources."
           description="Provision fully isolated KVM cloud virtual servers on AMD EPYC processors and enterprise Gen4 NVMe arrays. Scale CPU, memory, and storage on demand with root SSH control and transparent pricing."

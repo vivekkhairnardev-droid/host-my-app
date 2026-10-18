@@ -108,12 +108,6 @@ export default function DedicatedServersPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Products", href: "/#hosting-plans" },
-            { label: "Dedicated Servers" },
-          ]}
-          eyebrow="Dedicated Server Infrastructure"
           title="Dedicated Server Performance"
           titleHighlight="Without Compromise."
           description="Single-tenant bare-metal AMD EPYC and Intel Xeon servers with ECC DDR5 memory, hardware NVMe RAID arrays, and dedicated 10 Gbps unmetered uplinks. Full out-of-band IPMI remote management included."

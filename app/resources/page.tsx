@@ -100,11 +100,7 @@ export default function ResourcesPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Resources & Documentation" },
-          ]}
-          eyebrow="Engineering Knowledge Base"
+          variant="centered"
           title="Technical Documentation &"
           titleHighlight="Server Engineering Guides."
           description="Step-by-step tutorials, server configuration manuals, API references, and architecture blueprints written and tested by our cloud engineering team."
@@ -124,7 +120,6 @@ export default function ResourcesPage() {
             "Full REST API Documentation",
             "24/7 Human Engineering Support",
           ]}
-          preview={<ResourcesQuickstartPreview />}
         />
 
         {/* ARTICLES & GUIDES DIRECTORY */}

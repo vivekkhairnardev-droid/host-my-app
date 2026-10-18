@@ -73,12 +73,6 @@ export default function MigrationPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Solutions", href: "/#migration-section" },
-            { label: "Migration Service" },
-          ]}
-          eyebrow="White-Glove Migration Services"
           title="Zero-Downtime Server &"
           titleHighlight="Website Migration."
           description="Moving from another provider? Our certified Linux sysadmins handle your complete transfer—databases, files, configurations, and mailboxes—100% free with zero downtime."

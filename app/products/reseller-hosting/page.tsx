@@ -108,12 +108,6 @@ export default function ResellerHostingPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Products", href: "/#hosting-plans" },
-            { label: "Reseller Hosting" },
-          ]}
-          eyebrow="White-Label Reseller Hosting"
           title="High-Margin Reseller Hosting"
           titleHighlight="for Agencies & Web Hosts."
           description="Sell web hosting under your own brand with Web Host Manager (WHM), custom private nameservers, and automated client billing via WHMCS. High-speed Gen4 NVMe arrays with overselling enabled for maximum profitability."

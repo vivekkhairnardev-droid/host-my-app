@@ -151,12 +151,6 @@ export default function WebHostingPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Products", href: "/#hosting-plans" },
-            { label: "Web Hosting" },
-          ]}
-          eyebrow="Managed Web Hosting"
           title="Fast, Reliable Web Hosting"
           titleHighlight="for Business Websites."
           description="High-speed NVMe storage, LiteSpeed caching, and automated daily backups for business websites, portfolios, and blogs. Simple cPanel management backed by 24/7 human engineering support."

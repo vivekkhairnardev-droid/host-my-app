@@ -93,12 +93,6 @@ export default function AgenciesPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Solutions", href: "/#agency-section" },
-            { label: "Digital Agencies" },
-          ]}
-          eyebrow="Digital Agency Infrastructure"
           title="High-Performance Client Hosting"
           titleHighlight="Built for Digital Agencies."
           description="Consolidate your client hosting in one unified hub. Deliver websites faster with 1-click staging, granular team permissions, white-label client billing, and partner margins up to 35%."

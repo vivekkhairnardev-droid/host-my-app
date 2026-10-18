@@ -115,12 +115,6 @@ export default function DevelopersPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Solutions", href: "/#developer-section" },
-            { label: "Developers & DevOps" },
-          ]}
-          eyebrow="Developer Cloud Infrastructure"
           title="Cloud Infrastructure Built"
           titleHighlight="for Developers & DevOps."
           description="Fast KVM virtual servers, Git push-to-deploy, REST APIs, and official Terraform modules with root SSH access. Predictable billing without complex cloud calculators."

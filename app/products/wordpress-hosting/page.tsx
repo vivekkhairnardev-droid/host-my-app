@@ -167,12 +167,6 @@ export default function WordPressHostingPage() {
       <main className="flex-1">
         {/* UNIFIED INNER HERO */}
         <InnerHero
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Products", href: "/#hosting-plans" },
-            { label: "WordPress Hosting" },
-          ]}
-          eyebrow="Managed WordPress Infrastructure"
           title="Optimized WordPress Hosting"
           titleHighlight="with Server-Level Caching."
           description="Server-side LiteSpeed and Redis caching, 1-click staging environments, and automated WordPress core updates. Engineered to eliminate slow loading times on high-traffic sites and WooCommerce stores."
