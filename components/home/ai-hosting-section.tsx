@@ -37,7 +37,7 @@ export function AiHostingSection() {
             </h2>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              Describe your website, generate the structure, customize it visually, and publish it directly to your high-speed NEXORA hosting account with zero code hurdles.
+              Describe your website, generate the structure, customize it visually, and publish it directly to your high-speed Bhartiya Cloud hosting account with zero code hurdles.
             </p>
 
             <form onSubmit={handleSimulate} className="space-y-3 pt-2">
@@ -90,7 +90,7 @@ export function AiHostingSection() {
               {/* Top toolbar */}
               <div className="flex items-center justify-between border-b border-border pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-muted-foreground">nexora-studio // live-canvas</span>
+                  <span className="font-mono text-xs text-muted-foreground">bhartiya-studio // live-canvas</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="rounded border border-border bg-muted px-2 py-0.5 text-[10px] text-muted-foreground font-mono">

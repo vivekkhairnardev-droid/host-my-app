@@ -66,10 +66,10 @@ export function BusinessAgencySection() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-4">
             <div className="flex items-center gap-3">
               <div className="flex size-9 items-center justify-center rounded-md bg-muted text-primary font-bold text-sm">
-                NP
+                BC
               </div>
               <div>
-                <div className="text-sm font-bold text-foreground">Nexora Agency Suite · Apex Digital</div>
+                <div className="text-sm font-bold text-foreground">Bhartiya Cloud Agency Suite · Apex Digital</div>
                 <div className="text-xs text-muted-foreground">38 Active Client Accounts · 100% Health Score</div>
               </div>
             </div>

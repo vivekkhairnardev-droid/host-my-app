@@ -106,7 +106,7 @@ const recentActivities = [
   },
   {
     title: "SSL Wildcard Certificate Auto-Renewed",
-    target: "*.hostmyapp.dev · Let's Encrypt",
+    target: "*.bhartiyacloud.dev · Let's Encrypt",
     time: "7 hours ago",
     status: "success",
   },
@@ -122,7 +122,7 @@ export function DashboardOverviewPage() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-primary">HostMyApp Cloud Control</span>
+            <span className="text-xs font-semibold text-primary">Bhartiya Cloud Control</span>
             <span className="text-muted-foreground">•</span>
             <span className="text-xs text-muted-foreground font-mono">v4.8.2-stable</span>
           </div>

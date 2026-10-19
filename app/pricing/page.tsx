@@ -399,7 +399,7 @@ export default function PricingPage() {
               <div className="space-y-1.5 text-center sm:text-left">
                 <h3 className="text-xl font-bold text-foreground">30-Day Unconditional Money-Back Guarantee</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Test Nexora Cloud with confidence. If you are not satisfied with our server performance, network reliability, or support response times within 30 days, we will issue a full refund without questions asked.
+                  Test Bhartiya Cloud with confidence. If you are not satisfied with our server performance, network reliability, or support response times within 30 days, we will issue a full refund without questions asked.
                 </p>
               </div>
             </div>

@@ -139,7 +139,7 @@ const wpFeatures = [
 
 const faqs = [
   {
-    q: "How does Nexora Managed WordPress differ from generic shared hosting?",
+    q: "How does Bhartiya Cloud Managed WordPress differ from generic shared hosting?",
     a: "Our WordPress platform is custom-configured specifically for WordPress and WooCommerce execution. We provide server-side LiteSpeed caching, Redis object cache, automated staging environments, and WordPress-specific firewall rules that prevent common CMS vulnerabilities.",
   },
   {
@@ -147,7 +147,7 @@ const faqs = [
     a: "Yes. Our engineering team transfers your complete WordPress website, uploads, database, and configurations with zero downtime. We verify the staging copy before completing DNS changes.",
   },
   {
-    q: "Does Nexora support WooCommerce stores?",
+    q: "Does Bhartiya Cloud support WooCommerce stores?",
     a: "Yes. Our WP Pro and WP Enterprise plans are tuned specifically for WooCommerce, featuring generous PHP worker allocations, high memory limits (up to 1024MB), and Redis object caching.",
   },
   {

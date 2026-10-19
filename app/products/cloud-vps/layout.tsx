@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "High-Performance Cloud VPS Hosting | NEXORA Cloud",
+  title: "High-Performance Cloud VPS Hosting | Bhartiya Cloud",
   description:
     "Deploy scalable KVM Cloud VPS instances with dedicated AMD EPYC compute, Gen4 NVMe arrays, unmetered 10 Gbps uplinks, and 3.2 Tbps DDoS protection.",
   keywords: [
@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     "kvm vps",
     "nvme cloud hosting",
     "virtual private server",
-    "nexora cloud",
+    "bhartiya cloud",
     "ddos protected vps",
   ],
   openGraph: {
-    title: "High-Performance Cloud VPS | NEXORA Cloud",
+    title: "High-Performance Cloud VPS | Bhartiya Cloud",
     description:
       "Instant provisioning, dedicated compute, and 99.99% SLA guaranteed across 18+ global edge regions.",
     type: "website",

@@ -25,8 +25,8 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="inline-flex items-center">
               <Image
-                src="/logo.png"
-                alt="Nexora Cloud Logo"
+                src="/platform-logo1.png"
+                alt="Bhartiya Cloud Logo"
                 width={160}
                 height={38}
                 className="h-8 w-auto object-contain brightness-0 invert"
@@ -251,7 +251,7 @@ export function Footer() {
 
         {/* Bottom Legal & Copyright Bar */}
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-zinc-800 pt-8 text-xs text-zinc-400 sm:flex-row">
-          <p>© 2026 NEXORA Cloud Inc. All rights reserved. Built for mission-critical infrastructure.</p>
+          <p>© 2026 Bhartiya Cloud Inc. All rights reserved. Built for mission-critical infrastructure.</p>
           <div className="flex flex-wrap items-center gap-6">
             <Link href="/legal/terms" className="hover:text-zinc-200 transition-colors">
               Terms of Service

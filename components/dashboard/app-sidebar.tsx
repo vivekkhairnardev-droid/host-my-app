@@ -57,7 +57,7 @@ const generalItems = [
   { label: "What's New", href: "/dashboard/whats-new", icon: Megaphone },
   {
     label: "System Status",
-    href: "https://status.nexoracloud.com",
+    href: "https://status.bhartiyacloud.com",
     icon: Pulse,
     isExternal: true,
   },

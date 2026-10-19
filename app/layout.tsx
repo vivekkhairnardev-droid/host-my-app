@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NEXORA Cloud | Next-Gen Cloud Infrastructure",
+  title: "Bhartiya Cloud | Next-Gen Cloud Infrastructure",
   description: "High-performance cloud VPS, bare-metal dedicated servers, and app hosting platform.",
 };
 

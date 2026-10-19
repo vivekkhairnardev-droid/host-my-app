@@ -318,11 +318,11 @@ export default function ClientDashboardPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Emergency Escalation:</span>
-                    <span className="font-mono text-foreground">escalations@nexoracloud.com</span>
+                    <span className="font-mono text-foreground">escalations@bhartiyacloud.com</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Security Team:</span>
-                    <span className="font-mono text-foreground">security@nexoracloud.com</span>
+                    <span className="font-mono text-foreground">security@bhartiyacloud.com</span>
                   </div>
                 </div>
               </div>

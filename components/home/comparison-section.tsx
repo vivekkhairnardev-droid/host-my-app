@@ -5,7 +5,7 @@ import { Check } from "@phosphor-icons/react";
 
 interface ComparisonRow {
   feature: string;
-  nexora: string;
+  bhartiya: string;
   traditional: string;
   enterprise: string;
 }
@@ -13,55 +13,55 @@ interface ComparisonRow {
 const rows: ComparisonRow[] = [
   {
     feature: "Compute Architecture",
-    nexora: "AMD EPYC™ Gen4 @ 4.2 GHz Turbo",
+    bhartiya: "AMD EPYC™ Gen4 @ 4.2 GHz Turbo",
     traditional: "Legacy multi-tenant hardware",
     enterprise: "Modern (billed per CPU-second)",
   },
   {
     feature: "Storage Technology",
-    nexora: "Enterprise Gen4 NVMe RAID-10",
+    bhartiya: "Enterprise Gen4 NVMe RAID-10",
     traditional: "Slow SATA SSDs or legacy HDDs",
     enterprise: "Network EBS / SAN (extra IOPS fee)",
   },
   {
     feature: "Automated Offsite Backups",
-    nexora: "Included on all core plans",
+    bhartiya: "Included on all core plans",
     traditional: "Expensive monthly add-on fee",
     enterprise: "Complex manual snapshot rules",
   },
   {
     feature: "Technical Support",
-    nexora: "24/7/365 Tier-3 Linux Engineers",
+    bhartiya: "24/7/365 Tier-3 Linux Engineers",
     traditional: "Outsourced script readers",
     enterprise: "Paid support tier ($100+/mo min)",
   },
   {
     feature: "DDoS Attack Mitigation",
-    nexora: "Up to 3.2 Tbps L3/L4/L7 (Free)",
+    bhartiya: "Up to 3.2 Tbps L3/L4/L7 (Free)",
     traditional: "Null-routing on large attacks",
     enterprise: "Shield Advanced ($3,000/mo)",
   },
   {
     feature: "Assisted Migration Service",
-    nexora: "100% Free with zero downtime",
+    bhartiya: "100% Free with zero downtime",
     traditional: "Self-service or paid service",
     enterprise: "DIY or certified partner fees",
   },
   {
     feature: "Full Root & Custom ISOs",
-    nexora: "Available across all VPS tiers",
+    bhartiya: "Available across all VPS tiers",
     traditional: "Strict shared hosting jail",
     enterprise: "Full control but high complexity",
   },
   {
     feature: "Vertical Scalability",
-    nexora: "1-Click instant resource resize",
+    bhartiya: "1-Click instant resource resize",
     traditional: "Requires manual server rebuild",
     enterprise: "Autoscaling with complex policies",
   },
   {
     feature: "Pricing Transparency",
-    nexora: "Fixed predictable pricing, no gotchas",
+    bhartiya: "Fixed predictable pricing, no gotchas",
     traditional: "3x price surge on renewal",
     enterprise: "Bandwidth egress invoices",
   },
@@ -78,7 +78,7 @@ export function ComparisonSection() {
             See what you get with us.
           </h2>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            High performance without enterprise complexity. Compare how NEXORA delivers more speed and value than budget web hosts and legacy hyperscalers.
+            High performance without enterprise complexity. Compare how Bhartiya Cloud delivers more speed and value than budget web hosts and legacy hyperscalers.
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export function ComparisonSection() {
                 <th className="py-3 px-4 font-semibold text-primary bg-primary/5 w-1/3">
                   <div className="flex items-center gap-1.5">
                     <span className="size-2 rounded-full bg-primary" />
-                    <span>NEXORA Cloud</span>
+                    <span>Bhartiya Cloud</span>
                   </div>
                 </th>
                 <th className="py-3 px-4 font-semibold text-muted-foreground w-1/5">Budget Hosts</th>
@@ -107,7 +107,7 @@ export function ComparisonSection() {
                   <td className="py-3 px-4 font-medium text-foreground bg-primary/5">
                     <div className="flex items-center gap-2">
                       <Check className="size-3.5 text-primary shrink-0 font-bold" />
-                      <span>{row.nexora}</span>
+                      <span>{row.bhartiya}</span>
                     </div>
                   </td>
                   <td className="py-3 px-4 text-muted-foreground text-xs">

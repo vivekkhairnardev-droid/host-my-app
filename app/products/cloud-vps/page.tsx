@@ -257,49 +257,49 @@ const operatingSystems: OSItem[] = [
 const comparisonData = [
   {
     feature: "Processor Architecture",
-    nexora: "AMD EPYC™ 9654 (Genoa)",
+    bhartiya: "AMD EPYC™ 9654 (Genoa)",
     aws: "Shared Xeon / Graviton3",
     digitalocean: "Shared Intel / AMD",
     linode: "Shared AMD EPYC",
   },
   {
     feature: "Storage Technology",
-    nexora: "PCIe 4.0 NVMe RAID 10",
+    bhartiya: "PCIe 4.0 NVMe RAID 10",
     aws: "EBS gp3 (Network Attached)",
     digitalocean: "Local NVMe SSD",
     linode: "Standard NVMe SSD",
   },
   {
     feature: "Network Uplink Speed",
-    nexora: "Up to 10 Gbps Unthrottled",
+    bhartiya: "Up to 10 Gbps Unthrottled",
     aws: "Up to 5 Gbps (Burstable)",
     digitalocean: "1 Gbps to 2 Gbps",
     linode: "1 Gbps to 4 Gbps",
   },
   {
     feature: "Included Bandwidth (4 vCPU / 8GB)",
-    nexora: "30 TB / month",
+    bhartiya: "30 TB / month",
     aws: "Pay-as-you-go ($0.09/GB)",
     digitalocean: "5 TB / month",
     linode: "5 TB / month",
   },
   {
     feature: "Enterprise DDoS Shield",
-    nexora: "3.2 Tbps Always-On (Free)",
+    bhartiya: "3.2 Tbps Always-On (Free)",
     aws: "Shield Advanced ($3,000/mo)",
     digitalocean: "Basic L3/L4",
     linode: "Standard Scrubbing",
   },
   {
     feature: "Automated Snapshots & API",
-    nexora: "Sub-second live copy",
+    bhartiya: "Sub-second live copy",
     aws: "EBS Snapshot latency",
     digitalocean: "20% plan fee",
     linode: "Monthly add-on fee",
   },
   {
     feature: "Price for 4 vCPU / 8 GB RAM",
-    nexora: "$16.50 / mo",
+    bhartiya: "$16.50 / mo",
     aws: "~$68.40 / mo (t4g.xlarge)",
     digitalocean: "$48.00 / mo",
     linode: "$48.00 / mo",
@@ -311,12 +311,12 @@ const faqs = [
   {
     question: "How fast is instance provisioning after placing an order?",
     answer:
-      "All Nexora Cloud VPS instances are fully automated and provisioned in under 30 seconds. Your root credentials and IP assignments are delivered immediately via dashboard and email, ready for instant SSH access.",
+      "All Bhartiya Cloud VPS instances are fully automated and provisioned in under 30 seconds. Your root credentials and IP assignments are delivered immediately via dashboard and email, ready for instant SSH access.",
   },
   {
     question: "Can I scale CPU, RAM, and NVMe storage without losing data?",
     answer:
-      "Yes! You can dynamically scale your Cloud VPS instance up or down directly from the Nexora Cloud Console. CPU and RAM resizing takes less than 60 seconds with a quick reboot, and NVMe block storage can be expanded on-the-fly without any downtime.",
+      "Yes! You can dynamically scale your Cloud VPS instance up or down directly from the Bhartiya Cloud Console. CPU and RAM resizing takes less than 60 seconds with a quick reboot, and NVMe block storage can be expanded on-the-fly without any downtime.",
   },
   {
     question: "What kind of DDoS protection is included?",
@@ -329,7 +329,7 @@ const faqs = [
       "Yes. Every instance includes 100% root access via SSH, web-based out-of-band VNC recovery console, 1 dedicated static IPv4 address, and a routed /64 IPv6 subnet. Additional IPv4 addresses can be attached anytime.",
   },
   {
-    question: "What virtualization technology does NEXORA Cloud use?",
+    question: "What virtualization technology does Bhartiya Cloud use?",
     answer:
       "We strictly use Kernel-based Virtual Machine (KVM) virtualization on top of enterprise hypervisors with ECC DDR5 memory and redundant PCIe 4.0 NVMe arrays. There is zero noisy-neighbor resource throttling.",
   },
@@ -370,7 +370,7 @@ export default function CloudVpsPage() {
   };
 
   const handleCopyCommand = () => {
-    navigator.clipboard.writeText(`nexora vps create --plan ${selectedPlan.id} --region ${selectedRegion} --os ${selectedOS} --name my-app-prod`);
+    navigator.clipboard.writeText(`bhartiya vps create --plan ${selectedPlan.id} --region ${selectedRegion} --os ${selectedOS} --name my-app-prod`);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 2000);
   };
@@ -1004,7 +1004,7 @@ export default function CloudVpsPage() {
                 </h2>
 
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  Automate instance lifecycle management effortlessly. Integrate Nexora Cloud VPS directly into your CI/CD pipelines, GitOps workflows, or Kubernetes autoscalers.
+                  Automate instance lifecycle management effortlessly. Integrate Bhartiya Cloud VPS directly into your CI/CD pipelines, GitOps workflows, or Kubernetes autoscalers.
                 </p>
 
                 <div className="space-y-3 pt-2">
@@ -1069,7 +1069,7 @@ export default function CloudVpsPage() {
                             : "text-muted-foreground hover:text-foreground"
                         )}
                       >
-                        NEXORA CLI
+                        Bhartiya CLI
                       </button>
                       <button
                         type="button"
@@ -1102,13 +1102,13 @@ export default function CloudVpsPage() {
                   {/* Code snippet display */}
                   {activeCodeTab === "cli" && (
                     <div className="space-y-2 leading-relaxed text-slate-300">
-                      <p className="text-slate-500"># Authenticate with Nexora Cloud API</p>
+                      <p className="text-slate-500"># Authenticate with Bhartiya Cloud API</p>
                       <p>
-                        <span className="text-primary font-bold">nexora</span> auth login --token <span className="text-emerald-400">&quot;$NEXORA_API_KEY&quot;</span>
+                        <span className="text-primary font-bold">bhartiya</span> auth login --token <span className="text-emerald-400">&quot;$BHARTIYA_API_KEY&quot;</span>
                       </p>
                       <p className="text-slate-500 pt-2"># Provision production Cloud VPS</p>
                       <p>
-                        <span className="text-primary font-bold">nexora</span> vps create \
+                        <span className="text-primary font-bold">bhartiya</span> vps create \
                       </p>
                       <p className="pl-4">
                         --name <span className="text-emerald-400">&quot;api-cluster-prod-01&quot;</span> \
@@ -1136,14 +1136,14 @@ export default function CloudVpsPage() {
 
                   {activeCodeTab === "terraform" && (
                     <div className="space-y-1.5 leading-relaxed text-slate-300">
-                      <p><span className="text-primary font-bold">resource</span> <span className="text-emerald-400">&quot;nexora_vps&quot;</span> <span className="text-amber-400">&quot;web_node&quot;</span> &#123;</p>
+                      <p><span className="text-primary font-bold">resource</span> <span className="text-emerald-400">&quot;bhartiya_vps&quot;</span> <span className="text-amber-400">&quot;web_node&quot;</span> &#123;</p>
                       <p className="pl-4">name        = <span className="text-emerald-400">&quot;web-gateway-01&quot;</span></p>
                       <p className="pl-4">plan        = <span className="text-amber-400">&quot;cpx41&quot;</span></p>
                       <p className="pl-4">region      = <span className="text-cyan-400">&quot;fra&quot;</span></p>
                       <p className="pl-4">image       = <span className="text-emerald-400">&quot;ubuntu-24.04&quot;</span></p>
-                      <p className="pl-4">ssh_keys    = [nexora_ssh_key.primary.id]</p>
+                      <p className="pl-4">ssh_keys    = [bhartiya_ssh_key.primary.id]</p>
                       <p className="pl-4">auto_backup = <span className="text-purple-400">true</span></p>
-                      <p className="pl-4">firewall_id = nexora_firewall.web_sec.id</p>
+                      <p className="pl-4">firewall_id = bhartiya_firewall.web_sec.id</p>
                       <p>&#125;</p>
                     </div>
                   )}
@@ -1152,10 +1152,10 @@ export default function CloudVpsPage() {
                     <div className="space-y-2 leading-relaxed text-slate-300 overflow-x-auto">
                       <p className="text-slate-500"># Direct REST API POST</p>
                       <p>
-                        <span className="text-primary font-bold">curl</span> -X POST https://api.nexora.cloud/v1/vps \
+                        <span className="text-primary font-bold">curl</span> -X POST https://api.bhartiyacloud.com/v1/vps \
                       </p>
                       <p className="pl-4">
-                        -H <span className="text-emerald-400">&quot;Authorization: Bearer $NEXORA_TOKEN&quot;</span> \
+                        -H <span className="text-emerald-400">&quot;Authorization: Bearer $BHARTIYA_TOKEN&quot;</span> \
                       </p>
                       <p className="pl-4">
                         -H <span className="text-emerald-400">&quot;Content-Type: application/json&quot;</span> \
@@ -1181,7 +1181,7 @@ export default function CloudVpsPage() {
                 Performance Benchmarks
               </h2>
               <p className="text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
-                How NEXORA Compares to Legacy Hyperscalers
+                How Bhartiya Cloud Compares to Legacy Hyperscalers
               </p>
               <p className="text-base text-muted-foreground">
                 Up to 3x higher I/O throughput, unmetered network pipelines, and 60% lower infrastructure bills.
@@ -1194,7 +1194,7 @@ export default function CloudVpsPage() {
                   <tr className="border-b border-border bg-muted/60 text-foreground">
                     <th className="p-4 sm:px-6 font-bold">Specification / Feature</th>
                     <th className="p-4 sm:px-6 font-bold bg-primary/10 text-primary">
-                      NEXORA Cloud VPS
+                      Bhartiya Cloud VPS
                     </th>
                     <th className="p-4 sm:px-6 font-medium text-muted-foreground">
                       AWS EC2 (t4g/c6i)
@@ -1214,7 +1214,7 @@ export default function CloudVpsPage() {
                         {row.feature}
                       </td>
                       <td className="p-4 sm:px-6 font-bold text-primary bg-primary/5">
-                        {row.nexora}
+                        {row.bhartiya}
                       </td>
                       <td className="p-4 sm:px-6 text-muted-foreground">{row.aws}</td>
                       <td className="p-4 sm:px-6 text-muted-foreground">{row.digitalocean}</td>
@@ -1293,7 +1293,7 @@ export default function CloudVpsPage() {
             </h2>
 
             <p className="mx-auto max-w-2xl text-base text-muted-foreground">
-              Join thousands of developers, growing SaaS teams, and mission-critical applications running on NEXORA Cloud.
+              Join thousands of developers, growing SaaS teams, and mission-critical applications running on Bhartiya Cloud.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-3">

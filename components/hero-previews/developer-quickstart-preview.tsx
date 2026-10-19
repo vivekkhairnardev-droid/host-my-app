@@ -6,18 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Terminal, Copy, Check, ArrowRight, Code } from "@phosphor-icons/react";
 
 const codeSnippets = {
-  cli: `# Install Nexora CLI & deploy instance in under 30s
-curl -fsSL https://get.nexora.cloud/cli.sh | sh
-nexora auth login --token $NEXORA_API_KEY
-nexora vps create --plan cpx41 --region fra --os ubuntu-24.04`,
+  cli: `# Install Bhartiya Cloud CLI & deploy instance in under 30s
+curl -fsSL https://get.bhartiyacloud.com/cli.sh | sh
+bhartiya auth login --token $BHARTIYA_API_KEY
+bhartiya vps create --plan cpx41 --region fra --os ubuntu-24.04`,
 
   terraform: `# Terraform provider definition
 terraform {
   required_providers {
-    nexora = { source = "nexora/cloud", version = "~> 2.4" }
+    bhartiya = { source = "bhartiya/cloud", version = "~> 2.4" }
   }
 }
-resource "nexora_vps" "api_node" {
+resource "bhartiya_vps" "api_node" {
   name   = "api-cluster-01"
   plan   = "cpx41"
   region = "fra"
@@ -25,8 +25,8 @@ resource "nexora_vps" "api_node" {
 }`,
 
   curl: `# Deploy programmatically via REST API
-curl -X POST https://api.nexora.cloud/v1/servers \\
-  -H "Authorization: Bearer $NEXORA_TOKEN" \\
+curl -X POST https://api.bhartiyacloud.com/v1/servers \\
+  -H "Authorization: Bearer $BHARTIYA_TOKEN" \\
   -H "Content-Type: application/json" \\
   -d '{"plan":"cpx41","region":"fra","os":"ubuntu-24.04"}'`,
 };

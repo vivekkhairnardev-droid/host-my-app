@@ -29,7 +29,7 @@ const migrationSteps = [
   {
     step: "02",
     title: "Background Data Replication",
-    desc: "We clone your files, databases, and mailboxes to your new Nexora server in the background. Your live website remains 100% online without interruption.",
+    desc: "We clone your files, databases, and mailboxes to your new Bhartiya Cloud server in the background. Your live website remains 100% online without interruption.",
   },
   {
     step: "03",

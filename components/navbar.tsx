@@ -160,8 +160,8 @@ export function Navbar() {
             }}
           >
             <Image
-              src="/logo.png"
-              alt="Nexora Cloud Logo"
+              src="/platform-logo1.png"
+              alt="Bhartiya Cloud logo"
               width={160}
               height={38}
               priority
@@ -172,156 +172,156 @@ export function Navbar() {
 
         {/* Desktop Navigation Links (Centered) */}
         <nav className="hidden items-center gap-1 lg:flex absolute left-1/2 -translate-x-1/2">
-            {/* Hosting Dropdown Trigger */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => toggleDropdown("hosting")}
-                onMouseEnter={() => setActiveDropdown("hosting")}
-                className={cn(
-                  "flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors cursor-pointer",
-                  activeDropdown === "hosting"
-                    ? "bg-muted text-foreground"
-                    : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
-                )}
-                aria-expanded={activeDropdown === "hosting"}
-              >
-                <span>Hosting</span>
-                <CaretDown
-                  weight="bold"
-                  className={cn(
-                    "size-3.5 transition-transform text-muted-foreground",
-                    activeDropdown === "hosting" && "rotate-180 text-primary"
-                  )}
-                />
-              </button>
-
-              {/* Hosting Dropdown Panel */}
-              {activeDropdown === "hosting" && (
-                <div
-                  onMouseLeave={() => setActiveDropdown(null)}
-                  className="absolute top-full left-0 mt-2 w-96 rounded-md border border-border bg-popover p-2 text-popover-foreground shadow-md animate-in fade-in slide-in-from-top-2 duration-150"
-                >
-                  <div className="grid grid-cols-1 gap-1">
-                    {hostingProducts.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <Link
-                          key={item.title}
-                          href={item.href}
-                          onClick={() => setActiveDropdown(null)}
-                          className="group flex items-start gap-3 rounded-md p-2.5 transition-colors hover:bg-muted/70"
-                        >
-                          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary">
-                            <Icon weight="bold" className="size-4" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                                {item.title}
-                              </span>
-                              {item.badge && (
-                                <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
-                                  {item.badge}
-                                </span>
-                              )}
-                            </div>
-                            <div className="text-xs text-muted-foreground line-clamp-1">
-                              {item.description}
-                            </div>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
+          {/* Hosting Dropdown Trigger */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => toggleDropdown("hosting")}
+              onMouseEnter={() => setActiveDropdown("hosting")}
+              className={cn(
+                "flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors cursor-pointer",
+                activeDropdown === "hosting"
+                  ? "bg-muted text-foreground"
+                  : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
               )}
-            </div>
-
-
-            {/* Solutions Dropdown Trigger */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => toggleDropdown("solutions")}
-                onMouseEnter={() => setActiveDropdown("solutions")}
+              aria-expanded={activeDropdown === "hosting"}
+            >
+              <span>Hosting</span>
+              <CaretDown
+                weight="bold"
                 className={cn(
-                  "flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors cursor-pointer",
-                  activeDropdown === "solutions"
-                    ? "bg-muted text-foreground"
-                    : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
+                  "size-3.5 transition-transform text-muted-foreground",
+                  activeDropdown === "hosting" && "rotate-180 text-primary"
                 )}
-                aria-expanded={activeDropdown === "solutions"}
-              >
-                <span>Solutions</span>
-                <CaretDown
-                  weight="bold"
-                  className={cn(
-                    "size-3.5 transition-transform text-muted-foreground",
-                    activeDropdown === "solutions" && "rotate-180 text-primary"
-                  )}
-                />
-              </button>
+              />
+            </button>
 
-              {/* Solutions Dropdown Panel */}
-              {activeDropdown === "solutions" && (
-                <div
-                  onMouseLeave={() => setActiveDropdown(null)}
-                  className="absolute top-full left-0 mt-2 w-96 rounded-md border border-border bg-popover p-2 text-popover-foreground shadow-md animate-in fade-in slide-in-from-top-2 duration-150"
-                >
-                  <div className="grid grid-cols-1 gap-1">
-                    {solutions.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <Link
-                          key={item.title}
-                          href={item.href}
-                          onClick={() => setActiveDropdown(null)}
-                          className="group flex items-start gap-3 rounded-md p-2.5 transition-colors hover:bg-muted/70"
-                        >
-                          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary">
-                            <Icon weight="bold" className="size-4" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+            {/* Hosting Dropdown Panel */}
+            {activeDropdown === "hosting" && (
+              <div
+                onMouseLeave={() => setActiveDropdown(null)}
+                className="absolute top-full left-0 mt-2 w-96 rounded-md border border-border bg-popover p-2 text-popover-foreground shadow-md animate-in fade-in slide-in-from-top-2 duration-150"
+              >
+                <div className="grid grid-cols-1 gap-1">
+                  {hostingProducts.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        onClick={() => setActiveDropdown(null)}
+                        className="group flex items-start gap-3 rounded-md p-2.5 transition-colors hover:bg-muted/70"
+                      >
+                        <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                          <Icon weight="bold" className="size-4" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
                               {item.title}
-                            </div>
-                            <div className="text-xs text-muted-foreground line-clamp-1">
-                              {item.description}
-                            </div>
+                            </span>
+                            {item.badge && (
+                              <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+                                {item.badge}
+                              </span>
+                            )}
                           </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
+                          <div className="text-xs text-muted-foreground line-clamp-1">
+                            {item.description}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
+              </div>
+            )}
+          </div>
+
+
+          {/* Solutions Dropdown Trigger */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => toggleDropdown("solutions")}
+              onMouseEnter={() => setActiveDropdown("solutions")}
+              className={cn(
+                "flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors cursor-pointer",
+                activeDropdown === "solutions"
+                  ? "bg-muted text-foreground"
+                  : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
               )}
-            </div>
-
-            {/* Locations */}
-            <Link
-              href="/locations"
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
+              aria-expanded={activeDropdown === "solutions"}
             >
-              Locations
-            </Link>
+              <span>Solutions</span>
+              <CaretDown
+                weight="bold"
+                className={cn(
+                  "size-3.5 transition-transform text-muted-foreground",
+                  activeDropdown === "solutions" && "rotate-180 text-primary"
+                )}
+              />
+            </button>
 
-            {/* Resources */}
-            <Link
-              href="/resources"
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
-            >
-              Resources
-            </Link>
+            {/* Solutions Dropdown Panel */}
+            {activeDropdown === "solutions" && (
+              <div
+                onMouseLeave={() => setActiveDropdown(null)}
+                className="absolute top-full left-0 mt-2 w-96 rounded-md border border-border bg-popover p-2 text-popover-foreground shadow-md animate-in fade-in slide-in-from-top-2 duration-150"
+              >
+                <div className="grid grid-cols-1 gap-1">
+                  {solutions.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        onClick={() => setActiveDropdown(null)}
+                        className="group flex items-start gap-3 rounded-md p-2.5 transition-colors hover:bg-muted/70"
+                      >
+                        <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                          <Icon weight="bold" className="size-4" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                            {item.title}
+                          </div>
+                          <div className="text-xs text-muted-foreground line-clamp-1">
+                            {item.description}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
 
-            {/* Pricing */}
-            <Link
-              href="/pricing"
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
-            >
-              Pricing
-            </Link>
-          </nav>
+          {/* Locations */}
+          <Link
+            href="/locations"
+            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
+          >
+            Locations
+          </Link>
+
+          {/* Resources */}
+          <Link
+            href="/resources"
+            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
+          >
+            Resources
+          </Link>
+
+          {/* Pricing */}
+          <Link
+            href="/pricing"
+            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
+          >
+            Pricing
+          </Link>
+        </nav>
 
         {/* Right Desktop CTA Button & Theme Toggle */}
         <div className="hidden items-center gap-2.5 lg:flex shrink-0">

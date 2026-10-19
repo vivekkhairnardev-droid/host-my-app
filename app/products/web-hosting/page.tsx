@@ -114,11 +114,11 @@ const hostingPlans: HostingPlan[] = [
 
 const faqs = [
   {
-    q: "What makes Nexora NVMe Web Hosting faster than traditional hosts?",
-    a: "Unlike legacy hosts utilizing spinning SATA drives or crowded shared environments, Nexora operates on Gen4 PCIe NVMe storage arrays paired with LiteSpeed Enterprise Web Server. This delivers faster time-to-first-byte (TTFB), built-in server-level caching, and HTTP/3 support.",
+    q: "What makes Bhartiya Cloud NVMe Web Hosting faster than traditional hosts?",
+    a: "Unlike legacy hosts utilizing spinning SATA drives or crowded shared environments, Bhartiya Cloud operates on Gen4 PCIe NVMe storage arrays paired with LiteSpeed Enterprise Web Server. This delivers faster time-to-first-byte (TTFB), built-in server-level caching, and HTTP/3 support.",
   },
   {
-    q: "Can I migrate my existing websites to Nexora for free?",
+    q: "Can I migrate my existing websites to Bhartiya Cloud for free?",
     a: "Yes. Our cloud migrations team will transfer your cPanel files, databases, mailboxes, and DNS records with zero downtime. Simply submit a migration request from your client dashboard after signup.",
   },
   {

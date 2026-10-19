@@ -21,7 +21,7 @@ const benchmarkData = {
       { metric: "Instruction Sets", value: "AVX-512 & VNNI", detail: "Accelerated vector & AI inference instructions" },
     ],
     comparison: [
-      { provider: "NEXORA Cloud (Gen 4 KVM)", score: "3,480 pts", note: "100% Dedicated core allocation" },
+      { provider: "Bhartiya Cloud (Gen 4 KVM)", score: "3,480 pts", note: "100% Dedicated core allocation" },
       { provider: "Standard Public Cloud VPS", score: "2,240 pts", note: "Noisy neighbor resource sharing" },
       { provider: "Legacy Budget Shared Host", score: "940 pts", note: "Oversold vCPU with strict throttling" },
     ],
@@ -37,7 +37,7 @@ const benchmarkData = {
       { metric: "Array Architecture", value: "Hardware RAID-10", detail: "Zero single point of failure at block layer" },
     ],
     comparison: [
-      { provider: "NEXORA Cloud (Direct NVMe)", score: "120,000 IOPS", note: "Direct NVMe, no extra IOPS billing" },
+      { provider: "Bhartiya Cloud (Direct NVMe)", score: "120,000 IOPS", note: "Direct NVMe, no extra IOPS billing" },
       { provider: "Hyperscaler Network Volume (gp3)", score: "3,000 IOPS", note: "Baseline, charged extra for IOPS boost" },
       { provider: "Legacy SATA SSD Host", score: "450 IOPS", note: "Shared SATA disk with high wait times" },
     ],
@@ -53,7 +53,7 @@ const benchmarkData = {
       { metric: "DDoS Mitigation", value: "3.2 Tbps Inline Scrubbing", detail: "Sub-second BGP flowspec attack mitigation" },
     ],
     comparison: [
-      { provider: "NEXORA Cloud Anycast", score: "10 Gbps Uplink", note: "Multi-carrier BGP-4 routing included" },
+      { provider: "Bhartiya Cloud Anycast", score: "10 Gbps Uplink", note: "Multi-carrier BGP-4 routing included" },
       { provider: "Typical VPS Provider", score: "1 Gbps Shared", note: "Single upstream with peering bottlenecks" },
       { provider: "Budget Hosting Node", score: "100 Mbps Shared", note: "Null-routing during traffic spikes" },
     ],

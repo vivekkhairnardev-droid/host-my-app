@@ -203,7 +203,7 @@ export default function ResellerHostingPage() {
                   <span className="text-lg font-bold text-foreground">${estimatedRevenue.toFixed(2)}</span>
                 </div>
                 <div className="rounded border border-border bg-muted/20 p-3">
-                  <span className="text-[11px] text-muted-foreground block">Nexora Plan Cost</span>
+                  <span className="text-[11px] text-muted-foreground block">Bhartiya Cloud Plan Cost</span>
                   <span className="text-lg font-medium text-muted-foreground">-${resellerCost.toFixed(2)}</span>
                 </div>
                 <div className="rounded border border-primary/40 bg-primary/5 p-3">

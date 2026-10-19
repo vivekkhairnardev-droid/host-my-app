@@ -28,8 +28,8 @@ const codeSnippets: Record<string, { lang: string; code: string }> = {
   curl: {
     lang: "bash",
     code: `# Create a 4 vCPU / 8 GB RAM Cloud VPS in Frankfurt
-curl -X POST https://api.nexoracloud.com/v1/servers \\
-  -H "Authorization: Bearer $NEXORA_API_KEY" \\
+curl -X POST https://api.bhartiyacloud.com/v1/servers \\
+  -H "Authorization: Bearer $BHARTIYA_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
     "name": "api-production-01",
@@ -42,10 +42,10 @@ curl -X POST https://api.nexoracloud.com/v1/servers \\
   },
   typescript: {
     lang: "typescript",
-    code: `import { NexoraClient } from "@nexoracloud/sdk";
+    code: `import { BhartiyaClient } from "@bhartiyacloud/sdk";
 
-const client = new NexoraClient({
-  apiKey: process.env.NEXORA_API_KEY!,
+const client = new BhartiyaClient({
+  apiKey: process.env.BHARTIYA_API_KEY!,
 });
 
 // Spin up a new KVM Cloud VPS instance
@@ -61,9 +61,9 @@ console.log(\`Server provisioned with IPv4: \${server.publicIp}\`);`,
   },
   python: {
     lang: "python",
-    code: `from nexora import NexoraClient
+    code: `from bhartiyacloud import BhartiyaClient
 
-client = NexoraClient(api_key="nx_live_948f932...")
+client = BhartiyaClient(api_key="bc_live_948f932...")
 
 # Provision high-IOPS database node
 server = client.servers.create(
@@ -80,20 +80,20 @@ print(f"Server {server.id} deployed: {server.ipv4}")`,
     lang: "hcl",
     code: `terraform {
   required_providers {
-    nexora = {
-      source  = "nexoracloud/nexora"
+    bhartiya = {
+      source  = "bhartiyacloud/bhartiya"
       version = "~> 2.1"
     }
   }
 }
 
-resource "nexora_server" "api_cluster" {
+resource "bhartiya_server" "api_cluster" {
   count     = 3
   name      = "api-worker-\${count.index + 1}"
   plan      = "cpx41"
   region    = "fra"
   image     = "ubuntu-24.04"
-  ssh_keys  = [data.nexora_ssh_key.main.id]
+  ssh_keys  = [data.bhartiya_ssh_key.main.id]
 }`,
   },
 };
@@ -154,7 +154,7 @@ export default function DevelopersPage() {
                 <div className="flex size-9 items-center justify-center rounded-md bg-muted text-primary">
                   <Terminal weight="bold" className="size-4.5" />
                 </div>
-                <h3 className="text-base font-bold text-foreground">Nexora CLI &amp; REST API</h3>
+                <h3 className="text-base font-bold text-foreground">Bhartiya Cloud CLI &amp; REST API</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Manage cloud servers, DNS records, automated snapshots, and firewalls directly from your terminal or CI/CD pipelines.
                 </p>
@@ -187,7 +187,7 @@ export default function DevelopersPage() {
         <section className="py-16 bg-muted/40 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-              Start Deploying with Nexora Cloud
+              Start Deploying with Bhartiya Cloud
             </h2>
             <p className="text-sm text-muted-foreground max-w-xl mx-auto">
               Get an instant API key and launch high-performance AMD EPYC™ cloud instances in seconds.

@@ -28,8 +28,8 @@ export function DashboardHeader() {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 pr-1">
           <Image
-            src="/logo.png"
-            alt="Nexora Cloud"
+            src="/platform-logo1.png"
+            alt="Bhartiya Cloud"
             width={130}
             height={30}
             priority

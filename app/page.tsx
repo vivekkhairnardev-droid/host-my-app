@@ -18,7 +18,7 @@ import { ResourcesSection } from "@/components/home/resources-section";
 import { FaqSection } from "@/components/home/faq-section";
 
 export const metadata: Metadata = {
-  title: "NEXORA Cloud | High-Performance Web Hosting & Cloud Infrastructure",
+  title: "Bhartiya Cloud | High-Performance Web Hosting & Cloud Infrastructure",
   description:
     "Next-generation web hosting, Cloud VPS, bare-metal dedicated servers, and managed infrastructure engineered for developers, agencies, and high-growth businesses.",
 };

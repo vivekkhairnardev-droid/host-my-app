@@ -29,7 +29,7 @@ const devStacks = [
 export function DeveloperSection() {
   const [copied, setCopied] = useState(false);
 
-  const command = "npm install -g nexora-cli && nexora deploy --prod";
+  const command = "npm install -g bhartiya-cli && bhartiya deploy --prod";
 
   const handleCopy = () => {
     navigator.clipboard?.writeText(command);

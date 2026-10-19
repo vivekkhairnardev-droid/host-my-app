@@ -39,7 +39,7 @@ export function DomainSearchSection() {
         </h2>
 
         <p className="mt-3 text-sm text-muted-foreground sm:text-base max-w-2xl mx-auto">
-          Instant domain registration, free WHOIS privacy protection, Anycast DNS management, and seamless 1-click binding to your NEXORA cloud instances.
+          Instant domain registration, free WHOIS privacy protection, Anycast DNS management, and seamless 1-click binding to your Bhartiya Cloud instances.
         </p>
 
         {/* Large Domain Search Input */}
@@ -104,7 +104,7 @@ export function DomainSearchSection() {
         <div className="mt-6 text-xs text-muted-foreground">
           Already own a domain?{" "}
           <Link href="/domains/transfer" className="font-semibold text-primary hover:underline">
-            Transfer your existing domain to NEXORA for free renewal & Anycast DNS
+            Transfer your existing domain to Bhartiya Cloud for free renewal & Anycast DNS
           </Link>
         </div>
       </div>

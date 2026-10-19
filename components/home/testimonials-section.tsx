@@ -7,7 +7,7 @@ const testimonials = [
   {
     rating: 5,
     quote:
-      "We migrated 14 client WooCommerce stores over a weekend. Page speed jumped from 2.8s to sub-500ms on the NEXORA NVMe clusters. Their support engineer even tuned our Redis object cache.",
+      "We migrated 14 client WooCommerce stores over a weekend. Page speed jumped from 2.8s to sub-500ms on the Bhartiya Cloud NVMe clusters. Their support engineer even tuned our Redis object cache.",
     name: "Vikram Malhotra",
     initials: "VM",
     role: "Head of Engineering",
@@ -17,7 +17,7 @@ const testimonials = [
   {
     rating: 5,
     quote:
-      "During our Black Friday flash sale, our previous VPS provider throttled our CPU and went down. NEXORA absorbed 42,000 concurrent shopping cart sessions without breaking a sweat.",
+      "During our Black Friday flash sale, our previous VPS provider throttled our CPU and went down. Bhartiya Cloud absorbed 42,000 concurrent shopping cart sessions without breaking a sweat.",
     name: "Elena Rostova",
     initials: "ER",
     role: "Co-founder & CTO",
@@ -27,7 +27,7 @@ const testimonials = [
   {
     rating: 5,
     quote:
-      "NEXORA's transparent pricing saved our startup over $1,800/month compared to AWS. The KVM instances are genuinely dedicated with zero CPU steal, and the London edge latency is unmatched.",
+      "Bhartiya Cloud's transparent pricing saved our startup over $1,800/month compared to AWS. The KVM instances are genuinely dedicated with zero CPU steal, and the London edge latency is unmatched.",
     name: "Marcus Vance",
     initials: "MV",
     role: "Lead DevOps Architect",
@@ -125,7 +125,7 @@ export function TestimonialsSection() {
             Trusted by teams that need their infrastructure to simply work.
           </h2>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Read how engineering leads, ecommerce founders, and digital agencies power their mission-critical websites on NEXORA.
+            Read how engineering leads, ecommerce founders, and digital agencies power their mission-critical websites on Bhartiya Cloud.
           </p>
 
           {/* Trust Score Pill */}

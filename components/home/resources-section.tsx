@@ -15,7 +15,7 @@ const articles = [
   },
   {
     category: "Tutorials",
-    title: "Deploying Docker Containers with Zero-Downtime via Nexora CLI & Git",
+    title: "Deploying Docker Containers with Zero-Downtime via Bhartiya Cloud CLI & Git",
     excerpt: "Step-by-step guide to setting up automated push-to-deploy pipelines with SSL issuance and reverse proxy routing on modern KVM instances.",
     readTime: "11 min read",
     date: "Jun 12, 2026",

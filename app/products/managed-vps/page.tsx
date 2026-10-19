@@ -273,7 +273,7 @@ export default function ManagedVPSPage() {
                 Unmanaged vs. Fully Managed VPS
               </h2>
               <p className="text-sm text-muted-foreground">
-                Understand the difference in responsibilities between unmanaged servers and Nexora Managed VPS.
+                Understand the difference in responsibilities between unmanaged servers and Bhartiya Cloud Managed VPS.
               </p>
             </div>
 
@@ -283,7 +283,7 @@ export default function ManagedVPSPage() {
                   <tr className="border-b border-border bg-muted/40">
                     <th className="p-3.5 font-bold text-foreground">Operational Scope</th>
                     <th className="p-3.5 font-bold text-muted-foreground text-center">Unmanaged VPS</th>
-                    <th className="p-3.5 font-bold text-primary text-center">Nexora Managed VPS</th>
+                    <th className="p-3.5 font-bold text-primary text-center">Bhartiya Cloud Managed VPS</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border/60">

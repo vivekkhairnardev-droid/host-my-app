@@ -89,11 +89,11 @@ export function SecuritySection() {
               <span className="text-xl">➔</span>
             </div>
 
-            {/* Step 2: The NEXORA Edge Scrubbing Shield */}
+            {/* Step 2: The Bhartiya Cloud Edge Scrubbing Shield */}
             <div className="lg:col-span-3 rounded-md border border-primary/40 bg-primary/5 p-4">
               <div className="flex items-center justify-center gap-2 text-primary text-xs font-bold">
                 <ShieldCheck weight="fill" className="size-4.5" />
-                <span>NEXORA Anycast Edge Scrub</span>
+                <span>Bhartiya Cloud Anycast Edge Scrub</span>
               </div>
               <div className="mt-2 text-sm font-bold text-foreground">Inline BGP Filtering & WAF Engine</div>
               <div className="mt-2 flex flex-col gap-1 text-[11px] text-muted-foreground">

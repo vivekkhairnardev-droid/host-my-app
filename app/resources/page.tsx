@@ -58,7 +58,7 @@ const articles: GuideArticle[] = [
   },
   {
     id: "ddos-rules-tuning",
-    title: "Configuring Nexora DDoS Shield & Layer 7 Rate Limiting",
+    title: "Configuring Bhartiya Cloud DDoS Shield & Layer 7 Rate Limiting",
     summary: "Define custom WAF rules, block malicious user agents, and protect sensitive API endpoints during brute-force attacks.",
     category: "security",
     readTime: "5 min read",
@@ -72,7 +72,7 @@ const articles: GuideArticle[] = [
   },
   {
     id: "terraform-provider-guide",
-    title: "Managing Cloud VPS Fleets with Official Nexora Terraform Provider",
+    title: "Managing Cloud VPS Fleets with Official Bhartiya Cloud Terraform Provider",
     summary: "Declarative infrastructure as code. Spin up VPCs, private subnets, cloud servers, and DNS records using GitOps.",
     category: "vps",
     readTime: "8 min read",
@@ -111,7 +111,7 @@ export default function ResourcesPage() {
           }}
           secondaryCta={{
             text: "System Status",
-            href: "https://status.nexoracloud.com",
+            href: "https://status.bhartiyacloud.com",
             variant: "outline",
             icon: BookOpen,
           }}
@@ -266,7 +266,7 @@ export default function ResourcesPage() {
         <section className="py-16 bg-muted/40 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-              Ready to Deploy on Nexora Cloud?
+              Ready to Deploy on Bhartiya Cloud?
             </h2>
             <p className="text-sm text-muted-foreground max-w-xl mx-auto">
               Launch an AMD EPYC™ Cloud VPS today with dedicated resources and instant provisioning.

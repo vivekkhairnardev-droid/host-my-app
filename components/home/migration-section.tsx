@@ -82,7 +82,7 @@ export function MigrationSection() {
                   {/* Stage 2: New Infrastructure */}
                   <div className="rounded-md border border-primary/40 bg-primary/5 p-4 text-center">
                     <div className="text-xs font-mono uppercase text-primary font-semibold">Destination</div>
-                    <div className="mt-1 text-sm font-bold text-foreground">NEXORA Cloud</div>
+                    <div className="mt-1 text-sm font-bold text-foreground">Bhartiya Cloud</div>
                     <div className="mt-1 text-[11px] text-muted-foreground font-medium">Fast NVMe Deployment</div>
                   </div>
                 </div>
