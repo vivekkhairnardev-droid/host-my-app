@@ -10,7 +10,7 @@ export function PricingSummaryPreview() {
     { label: "Transparent Rates", desc: "No renewal price spikes or hidden egress surcharges" },
     { label: "Billed Hourly or Monthly", desc: "Pay strictly for what you provision with no contracts" },
     { label: "30-Day Money-Back", desc: "Full refund guarantee on all shared & VPS hosting plans" },
-    { label: "Multi-Currency Ready", desc: "Checkout in USD ($), EUR (€), GBP (£), or INR (₹)" },
+    { label: "Multi-Currency Ready", desc: "Checkout in INR (₹), USD ($), EUR (€), or GBP (£)" },
   ];
 
   return (

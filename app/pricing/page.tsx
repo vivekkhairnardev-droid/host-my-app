@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { InnerHero } from "@/components/inner-hero";
 import { PricingSummaryPreview } from "@/components/hero-previews/pricing-summary-preview";
+import { useCurrency } from "@/lib/currency-context";
 import {
   Check,
   ArrowRight,
@@ -21,24 +22,14 @@ import {
   X,
 } from "@phosphor-icons/react";
 
-const currencies = [
-  { code: "USD", symbol: "$", rate: 1.0 },
-  { code: "EUR", symbol: "€", rate: 0.92 },
-  { code: "GBP", symbol: "£", rate: 0.79 },
-  { code: "INR", symbol: "₹", rate: 83.5 },
-];
-
 export default function PricingPage() {
   const [activeCategory, setActiveCategory] = useState<"vps" | "web" | "managed" | "dedicated">("vps");
   const [isAnnual, setIsAnnual] = useState(true);
-  const [currencyIndex, setCurrencyIndex] = useState(0);
-
-  const curr = currencies[currencyIndex];
+  const { currency, setCurrency, current: curr, currencies, formatPrice: formatGlobalPrice } = useCurrency();
 
   const formatPrice = (usdMonthly: number) => {
     const discounted = isAnnual ? usdMonthly * 0.8 : usdMonthly;
-    const converted = discounted * curr.rate;
-    return `${curr.symbol}${converted < 10 ? converted.toFixed(2) : Math.round(converted)}`;
+    return formatGlobalPrice(discounted);
   };
 
   return (
@@ -104,19 +95,20 @@ export default function PricingPage() {
 
               {/* Currency Switcher */}
               <div className="inline-flex items-center rounded-md border border-border bg-muted p-1">
-                {currencies.map((c, i) => (
+                {currencies.map((c) => (
                   <button
                     key={c.code}
                     type="button"
-                    onClick={() => setCurrencyIndex(i)}
+                    onClick={() => setCurrency(c.code)}
                     className={cn(
-                      "rounded px-2.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
-                      currencyIndex === i
+                      "flex items-center gap-1 rounded px-2.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
+                      currency === c.code
                         ? "bg-background text-foreground shadow-xs font-semibold"
                         : "text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    {c.code}
+                    <span>{c.flag}</span>
+                    <span>{c.code}</span>
                   </button>
                 ))}
               </div>

@@ -11,6 +11,7 @@ import {
   HardDrives,
   Lightning,
 } from "@phosphor-icons/react";
+import { useCurrency } from "@/lib/currency-context";
 
 interface PlanSpec {
   name: string;
@@ -125,6 +126,7 @@ const plans: PlanSpec[] = [
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const { formatPrice } = useCurrency();
 
   return (
     <section id="pricing" className="relative py-16 lg:py-24 border-t border-border/60">
@@ -197,13 +199,13 @@ export function PricingSection() {
                   {/* Price */}
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-3xl font-bold text-foreground">
-                      ${price.toFixed(2)}
+                      {formatPrice(price)}
                     </span>
                     <span className="text-xs text-muted-foreground">/ month</span>
                   </div>
                   {isAnnual && (
                     <div className="mt-1 text-[11px] font-medium text-muted-foreground">
-                      Billed annually (Save ${(plan.monthlyPrice * 12 - plan.annualPrice * 12).toFixed(0)}/yr)
+                      Billed annually (Save {formatPrice(plan.monthlyPrice * 12 - plan.annualPrice * 12, { round: true })}/yr)
                     </div>
                   )}
 

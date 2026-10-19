@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { InnerHero } from "@/components/inner-hero";
 import { HostingPlanPreview } from "@/components/hero-previews/hosting-plan-preview";
+import { useCurrency } from "@/lib/currency-context";
 import {
   Browsers,
   Lightning,
@@ -157,6 +158,7 @@ const faqs = [
 ];
 
 export default function WordPressHostingPage() {
+  const { formatPrice } = useCurrency();
   const [isAnnual, setIsAnnual] = useState(true);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -190,7 +192,7 @@ export default function WordPressHostingPage() {
             <HostingPlanPreview
               planName="WordPress Pro"
               tagline="Optimized for WooCommerce stores & dynamic blogs"
-              price="$4.99"
+              price={formatPrice(4.99)}
               period="/ month"
               badge="LSCache Ready"
               specs={[
@@ -275,12 +277,12 @@ export default function WordPressHostingPage() {
                     <div className="my-5 border-y border-border py-4">
                       <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                          ${price.toFixed(2)}
+                          {formatPrice(price)}
                         </span>
                         <span className="text-xs text-muted-foreground">/ month</span>
                       </div>
                       <p className="text-[11px] text-muted-foreground mt-1 font-mono">
-                        {isAnnual ? `Billed $${(price * 12).toFixed(2)} annually` : "Billed month-to-month"}
+                        {isAnnual ? `Billed ${formatPrice(price * 12)} annually` : "Billed month-to-month"}
                       </p>
                     </div>
 

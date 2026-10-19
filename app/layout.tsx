@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { CurrencyProvider } from "@/lib/currency-context";
 
 export default function RootLayout({
   children,
@@ -61,7 +62,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <TooltipProvider>{children}</TooltipProvider>
+        <CurrencyProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </CurrencyProvider>
       </body>
     </html>
   );

@@ -13,6 +13,7 @@ import {
   CheckCircle,
   ArrowRight,
 } from "@phosphor-icons/react";
+import { useCurrency } from "@/lib/currency-context";
 
 interface ProductCardProps {
   title: string;
@@ -135,6 +136,7 @@ const products: ProductCardProps[] = [
 ];
 
 export function HostingProductsSection() {
+  const { formatPriceString } = useCurrency();
   return (
     <section id="hosting-plans" className="relative py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -180,7 +182,7 @@ export function HostingProductsSection() {
                       </h3>
                       <div className="flex items-baseline gap-1 mt-0.5">
                         <span className="text-xs text-muted-foreground">Starting at</span>
-                        <span className="text-lg font-bold text-foreground">{product.price}</span>
+                        <span className="text-lg font-bold text-foreground">{formatPriceString(product.price)}</span>
                         <span className="text-xs text-muted-foreground">{product.period}</span>
                       </div>
                     </div>

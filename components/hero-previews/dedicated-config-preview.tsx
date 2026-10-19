@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Cpu, HardDrives, Lightning, Globe, Terminal, ArrowRight } from "@phosphor-icons/react";
+import { useCurrency } from "@/lib/currency-context";
 
 interface DedicatedConfigPreviewProps {
   modelName?: string;
@@ -34,6 +35,7 @@ export function DedicatedConfigPreview({
   ctaLink = "#configurations",
   ctaText = "Configure Bare Metal",
 }: DedicatedConfigPreviewProps) {
+  const { formatPriceString } = useCurrency();
   return (
     <div className="mx-auto max-w-lg rounded-lg border border-border bg-card p-6 shadow-xs">
       {/* Header */}
@@ -103,7 +105,7 @@ export function DedicatedConfigPreview({
       <div className="mt-5 border-t border-border pt-4 flex items-center justify-between">
         <div>
           <div className="flex items-baseline gap-1">
-            <span className="text-2xl font-bold text-foreground">{price}</span>
+            <span className="text-2xl font-bold text-foreground">{formatPriceString(price)}</span>
             <span className="text-xs text-muted-foreground">{period}</span>
           </div>
           <div className="text-[11px] text-muted-foreground mt-0.5">

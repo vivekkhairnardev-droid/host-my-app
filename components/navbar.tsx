@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { CurrencySelector } from "@/components/currency-selector";
 import { cn } from "@/lib/utils";
 import {
   Cloud,
@@ -323,8 +324,9 @@ export function Navbar() {
           </Link>
         </nav>
 
-        {/* Right Desktop CTA Button & Theme Toggle */}
-        <div className="hidden items-center gap-2.5 lg:flex shrink-0">
+        {/* Right Desktop CTA Button & Theme Toggle & Currency Selector */}
+        <div className="hidden items-center gap-2 lg:flex shrink-0">
+          <CurrencySelector />
           <ThemeToggle />
 
           {/* Dashboard Dropdown */}
@@ -535,8 +537,14 @@ export function Navbar() {
               Pricing
             </Link>
 
+            {/* Mobile Currency & Theme Controls */}
+            <div className="pt-3 mt-3 border-t border-border/80 flex items-center justify-between px-1">
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Currency</span>
+              <CurrencySelector />
+            </div>
+
             {/* Mobile Action Buttons: Dashboard & Client Dashboard */}
-            <div className="pt-4 mt-3 border-t border-border/80 flex flex-col gap-2">
+            <div className="pt-2 flex flex-col gap-2">
               <Link
                 href="/dashboard"
                 onClick={() => setMobileMenuOpen(false)}

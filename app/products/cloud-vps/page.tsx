@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { InnerHero } from "@/components/inner-hero";
 import { VpsConfigPreview } from "@/components/hero-previews/vps-config-preview";
+import { useCurrency } from "@/lib/currency-context";
 import {
   Cloud,
   Cpu,
@@ -346,6 +347,7 @@ const faqs = [
 ];
 
 export default function CloudVpsPage() {
+  const { formatPrice, formatPriceString } = useCurrency();
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
   const [selectedCategory, setSelectedCategory] = useState<"all" | "general" | "cpu" | "memory">("all");
   const [selectedRegion, setSelectedRegion] = useState<string>("fra");
@@ -416,8 +418,8 @@ export default function CloudVpsPage() {
               storage="160 GB PCIe 4.0"
               storageType="NVMe RAID-10"
               bandwidth="30 TB @ 5 Gbps"
-              monthlyPrice={`$${getPlanPrice(selectedPlan).toFixed(2)}`}
-              hourlyPrice={`$${selectedPlan.hourlyPrice.toFixed(3)}/hr`}
+              monthlyPrice={formatPrice(getPlanPrice(selectedPlan))}
+              hourlyPrice={`${formatPrice(selectedPlan.hourlyPrice, { showCents: true })}/hr`}
               ctaLink="#configurator"
               ctaText="Configure Instance"
             />
@@ -571,14 +573,14 @@ export default function CloudVpsPage() {
                     <div className="my-6 border-y border-border/80 py-4">
                       <div className="flex items-baseline gap-1.5">
                         <span className="text-4xl font-extrabold text-foreground">
-                          ${price.toFixed(2)}
+                          {formatPrice(price)}
                         </span>
                         <span className="text-sm font-medium text-muted-foreground">
                           / month
                         </span>
                       </div>
                       <div className="mt-1 flex items-center justify-between text-xs text-muted-foreground">
-                        <span>Or ~${plan.hourlyPrice.toFixed(3)}/hr</span>
+                        <span>Or ~{formatPrice(plan.hourlyPrice, { showCents: true })}/hr</span>
                         {billingCycle === "annual" && (
                           <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
                             Billed annually
@@ -854,7 +856,7 @@ export default function CloudVpsPage() {
                       <span className="text-sm font-medium text-foreground">Total Due:</span>
                       <div className="text-right">
                         <span className="text-3xl font-extrabold text-primary">
-                          ${getPlanPrice(selectedPlan).toFixed(2)}
+                          {formatPrice(getPlanPrice(selectedPlan))}
                         </span>
                         <span className="text-xs text-muted-foreground">/mo</span>
                       </div>
@@ -1214,7 +1216,7 @@ export default function CloudVpsPage() {
                         {row.feature}
                       </td>
                       <td className="p-4 sm:px-6 font-bold text-primary bg-primary/5">
-                        {row.bhartiya}
+                        {formatPriceString(row.bhartiya)}
                       </td>
                       <td className="p-4 sm:px-6 text-muted-foreground">{row.aws}</td>
                       <td className="p-4 sm:px-6 text-muted-foreground">{row.digitalocean}</td>

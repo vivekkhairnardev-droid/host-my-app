@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { InnerHero } from "@/components/inner-hero";
 import { VpsConfigPreview } from "@/components/hero-previews/vps-config-preview";
+import { useCurrency } from "@/lib/currency-context";
 import {
   ShieldCheck,
   Headset,
@@ -119,6 +120,7 @@ const comparisonTable = [
 ];
 
 export default function ManagedVPSPage() {
+  const { formatPrice } = useCurrency();
   const [isAnnual, setIsAnnual] = useState(true);
 
   return (
@@ -158,7 +160,7 @@ export default function ManagedVPSPage() {
               storage="160 GB PCIe 4.0"
               storageType="NVMe RAID-10"
               bandwidth="20 TB @ 10 Gbps"
-              monthlyPrice="$19.99"
+              monthlyPrice={formatPrice(19.99)}
               hourlyPrice="cPanel / Plesk Ready"
               ctaLink="#plans"
               ctaText="View Managed Plans"
@@ -233,12 +235,12 @@ export default function ManagedVPSPage() {
                     <div className="my-5 border-y border-border py-4">
                       <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                          ${price.toFixed(2)}
+                          {formatPrice(price)}
                         </span>
                         <span className="text-xs text-muted-foreground">/ month</span>
                       </div>
                       <p className="text-[11px] text-muted-foreground mt-1 font-mono">
-                        {isAnnual ? `Billed $${(price * 12).toFixed(2)} annually` : "Billed month-to-month"}
+                        {isAnnual ? `Billed ${formatPrice(price * 12)} annually` : "Billed month-to-month"}
                       </p>
                     </div>
 

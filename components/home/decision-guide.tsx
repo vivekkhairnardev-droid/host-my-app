@@ -10,6 +10,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from "@phosphor-icons/react";
+import { useCurrency } from "@/lib/currency-context";
 
 const guides = [
   {
@@ -68,6 +69,7 @@ const guides = [
 ];
 
 export function DecisionGuideSection() {
+  const { formatPriceString } = useCurrency();
   return (
     <section id="decision-guide" className="relative py-16 lg:py-24 border-t border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -115,7 +117,7 @@ export function DecisionGuideSection() {
                       {item.stage}
                     </span>
                     <span className="text-sm font-semibold text-foreground">
-                      From {item.price}
+                      From {formatPriceString(item.price)}
                     </span>
                   </div>
 

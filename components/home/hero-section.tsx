@@ -15,6 +15,7 @@ import {
   Lightning,
   Terminal,
 } from "@phosphor-icons/react";
+import { useCurrency } from "@/lib/currency-context";
 
 const techStack = [
   { name: "Linux", icon: "🐧" },
@@ -58,6 +59,7 @@ const osOptions = [
 export function HeroSection() {
   const [activeRegion, setActiveRegion] = useState("in-bom");
   const [selectedOs, setSelectedOs] = useState("ubuntu");
+  const { formatPrice } = useCurrency();
 
   return (
     <section className="relative pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-border/50">
@@ -222,11 +224,11 @@ export function HeroSection() {
               <div className="mt-5 border-t border-border pt-4 flex items-center justify-between">
                 <div>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-bold text-foreground">$12.00</span>
+                    <span className="text-2xl font-bold text-foreground">{formatPrice(12)}</span>
                     <span className="text-xs text-muted-foreground">/ month</span>
                   </div>
                   <div className="text-[11px] text-muted-foreground font-mono mt-0.5">
-                    $0.016/hr · Hourly billing
+                    {formatPrice(0.016, { showCents: true })}/hr · Hourly billing
                   </div>
                 </div>
 

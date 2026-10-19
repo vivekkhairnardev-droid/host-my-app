@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { InnerHero } from "@/components/inner-hero";
 import { HostingPlanPreview } from "@/components/hero-previews/hosting-plan-preview";
+import { useCurrency } from "@/lib/currency-context";
 import {
   Globe,
   Lightning,
@@ -132,6 +133,7 @@ const faqs = [
 ];
 
 export default function WebHostingPage() {
+  const { formatPrice, formatPriceString } = useCurrency();
   const [isAnnual, setIsAnnual] = useState(true);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [domainSearch, setDomainSearch] = useState("");
@@ -141,7 +143,7 @@ export default function WebHostingPage() {
     e.preventDefault();
     if (!domainSearch.trim()) return;
     const cleanDomain = domainSearch.toLowerCase().replace(/https?:\/\//, "").replace(/\/.*$/, "");
-    setDomainResult(`${cleanDomain.includes(".") ? cleanDomain : cleanDomain + ".com"} is available ($9.99/yr, included free with annual hosting).`);
+    setDomainResult(`${cleanDomain.includes(".") ? cleanDomain : cleanDomain + ".com"} is available (${formatPriceString("$9.99/yr")}, included free with annual hosting).`);
   };
 
   return (
@@ -174,7 +176,7 @@ export default function WebHostingPage() {
             <HostingPlanPreview
               planName="Business Pro Plan"
               tagline="High-speed LiteSpeed NVMe hosting with unmetered bandwidth"
-              price="$2.99"
+              price={formatPrice(2.99)}
               period="/ month"
               badge="Most Popular"
               specs={[
@@ -298,12 +300,12 @@ export default function WebHostingPage() {
                     <div className="my-5 border-y border-border py-4">
                       <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                          ${price.toFixed(2)}
+                          {formatPrice(price)}
                         </span>
                         <span className="text-xs text-muted-foreground">/ month</span>
                       </div>
                       <p className="text-[11px] text-muted-foreground mt-1 font-mono">
-                        {isAnnual ? `Billed $${(price * 12).toFixed(2)} annually` : "Billed month-to-month"}
+                        {isAnnual ? `Billed ${formatPrice(price * 12)} annually` : "Billed month-to-month"}
                       </p>
                     </div>
 

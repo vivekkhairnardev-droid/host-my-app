@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { InnerHero } from "@/components/inner-hero";
 import { HostingPlanPreview } from "@/components/hero-previews/hosting-plan-preview";
+import { useCurrency } from "@/lib/currency-context";
 import {
   ArrowsClockwise,
   Users,
@@ -94,6 +95,7 @@ const resellerPlans: ResellerPlan[] = [
 ];
 
 export default function ResellerHostingPage() {
+  const { formatPrice } = useCurrency();
   const [clientCount, setClientCount] = useState<number>(30);
   const [clientFee, setClientFee] = useState<number>(25);
 
@@ -131,7 +133,7 @@ export default function ResellerHostingPage() {
             <HostingPlanPreview
               planName="Reseller Gold Package"
               tagline="50 cPanel Accounts with 250 GB Pure NVMe RAID-10"
-              price="$24.99"
+              price={formatPrice(24.99)}
               period="/ month"
               badge="Agency Choice"
               specs={[
@@ -184,7 +186,7 @@ export default function ResellerHostingPage() {
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-xs font-semibold">
                   <span className="text-foreground">Average Monthly Hosting Fee Charged per Client:</span>
-                  <span className="font-mono text-foreground font-bold">${clientFee} / mo</span>
+                  <span className="font-mono text-foreground font-bold">{formatPrice(clientFee)} / mo</span>
                 </div>
                 <input
                   type="range"
@@ -200,15 +202,15 @@ export default function ResellerHostingPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-border text-center">
                 <div className="rounded border border-border bg-muted/20 p-3">
                   <span className="text-[11px] text-muted-foreground block">Client Invoicing</span>
-                  <span className="text-lg font-bold text-foreground">${estimatedRevenue.toFixed(2)}</span>
+                  <span className="text-lg font-bold text-foreground">{formatPrice(estimatedRevenue)}</span>
                 </div>
                 <div className="rounded border border-border bg-muted/20 p-3">
                   <span className="text-[11px] text-muted-foreground block">Bhartiya Cloud Plan Cost</span>
-                  <span className="text-lg font-medium text-muted-foreground">-${resellerCost.toFixed(2)}</span>
+                  <span className="text-lg font-medium text-muted-foreground">-{formatPrice(resellerCost)}</span>
                 </div>
                 <div className="rounded border border-primary/40 bg-primary/5 p-3">
                   <span className="text-[11px] text-primary font-semibold block">Net Monthly Margin</span>
-                  <span className="text-lg font-bold text-primary">${estimatedProfit.toFixed(2)}</span>
+                  <span className="text-lg font-bold text-primary">{formatPrice(estimatedProfit)}</span>
                 </div>
               </div>
             </div>
@@ -252,7 +254,7 @@ export default function ResellerHostingPage() {
                   <div className="my-5 border-y border-border py-4">
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                        ${plan.monthlyPrice.toFixed(2)}
+                        {formatPrice(plan.monthlyPrice)}
                       </span>
                       <span className="text-xs text-muted-foreground">/ month</span>
                     </div>

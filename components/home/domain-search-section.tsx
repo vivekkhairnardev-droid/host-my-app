@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MagnifyingGlass, CheckCircle, Globe } from "@phosphor-icons/react";
+import { useCurrency } from "@/lib/currency-context";
 
 const domainTlds = [
   { tld: ".com", price: "$9.99/yr", popular: true },
@@ -16,6 +17,7 @@ const domainTlds = [
 ];
 
 export function DomainSearchSection() {
+  const { formatPriceString } = useCurrency();
   const [domainInput, setDomainInput] = useState("");
   const [searched, setSearched] = useState(false);
   const [searchedName, setSearchedName] = useState("");
@@ -78,7 +80,7 @@ export function DomainSearchSection() {
                 size="sm"
                 className="shrink-0"
               >
-                Add to Cart ($9.99/yr)
+                Add to Cart ({formatPriceString("$9.99/yr")})
               </Button>
             </div>
           )}
@@ -95,7 +97,7 @@ export function DomainSearchSection() {
                 }`}
             >
               <span className="text-foreground font-bold">{t.tld}</span>
-              <span className="text-muted-foreground">{t.price}</span>
+              <span className="text-muted-foreground">{formatPriceString(t.price)}</span>
             </div>
           ))}
         </div>
